@@ -49,7 +49,7 @@ void dis_exit(){
     c1(13);
     printf("Creator :\n");
     c1(11);
-    printf("Sayem Islam Leom\n");
+    printf("Sayem Islam Leon\n");
     printf("Samira Ibrahim\n");
     c1(7);
 }
