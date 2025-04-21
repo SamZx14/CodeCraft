@@ -20,7 +20,8 @@ void dis_menu(int choose,int stp) {
     printf("%s%sBug Hunter%s\n",c2(13),choose==3?"-> ":"   ",c2(0));
     printf("%s%sType Master%s\n",c2(14),choose==4?"-> ":"   ",c2(0));
     printf("%s%sMix Mode%s\n",c2(15),choose==5?"-> ":"   ",c2(0));
-    printf("%s%sExit%s\n",c2(10),choose==6?"-> ":"   ",c2(0));
+    printf("%s%sAbout%s\n",c2(16),choose==6?"-> ":"   ",c2(0));
+    printf("%s%sExit%s\n",c2(10),choose==7?"-> ":"   ",c2(0));
     if(stp==0){
         c1(14);
          printf("\n\n Navigation arows written down blow\n\n");
@@ -51,7 +52,35 @@ void dis_exit(){
     c1(11);
     printf("Sayem Islam Leon\n");
     printf("Samira Ibrahim\n");
+    printf("Motmayeen Billah\n");
+    printf("Suborna Akter\n");
+    printf("Shinzu\n");
     c1(7);
 }
 
+void dis_about(){
+    system ("cls");
+    printf("About CodeCraft:\n");
+    c1(15);
+    printf("CodeCraft is a fun and  challenging console-based game designed to test your  vocabulary\n");
+    printf("and  quick  thinking  skills. Built  using C programming  concepts, this  game  features\n");
+    printf("multiple interactive modes, including word formation, syntax challenges, and bug-hunting\n");
+    printf("puzzles. With  no graphics  or  images, it focuses  purely  on logic and user engagement,\n");
+    printf("making it ideal for anyone who enjoys testing their cognitive abilities and learning new\nwords.\n\n"); 
+    c1(13);
+    printf("Creator :\n");
+    c1(11);
+    printf("Sayem Islam Leon\n");
+    printf("Samira Ibrahim\n");
+    printf("Motmayeen Billah\n");
+    printf("Suborna Akter\n");
+    printf("Shinzu\n");
+    c1(7);
 
+    c1(3);
+    printf("\nPress any key to return to the menu...\n");
+    
+    
+_getch();
+c1(7);
+}

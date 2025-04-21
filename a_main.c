@@ -18,14 +18,15 @@ int main (){
         dis_menu(choose,stp++);
         ch=_getch();
         if((ch=='w'|| ch=='W')&& choose>1) choose --;
-        else if((ch=='x' || ch=='X')&& choose<6) choose ++;
+        else if((ch=='x' || ch=='X')&& choose<7) choose ++;
         else if(ch=='\r'|| ch=='s' || ch=='s'){
             if(choose==1) code_quiz();
             else if(choose==2) syntax_sprint();
             else if(choose==3) bug_hunter();
             else if(choose==4) type_master();
             else if(choose==5) mix_mode();
-            else if(choose==6) {
+            else if(choose==6) dis_about();
+            else if(choose==7) {
                 dis_exit();
                 return 0;
             }
