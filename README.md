@@ -21,6 +21,4 @@
 If you wanted to play --
 ### Clone the Repository
 
-Clone the repository to your local machine using:
-
 
