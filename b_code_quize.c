@@ -7,6 +7,8 @@ void code_quiz() {
     // Implement the Code Quiz game logic here
     c1(3);
             printf("\nPress any key to return to the menu...\n");
+            
+            
         _getch();
         c1(7);
 }
