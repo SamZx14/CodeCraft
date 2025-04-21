@@ -18,12 +18,8 @@
   
 ## Installation
 
-To play CodeCraft, follow the steps below:
-
+If you wanted to play --
 ### Clone the Repository
 
-Clone the repository to your local machine using:
+git  -https://github.com/SayemXx/CodeCraft.git
 
-```bash
-git clone https://github.com/SayemXx/CodeCraft.git
-i am samira
