@@ -15,12 +15,12 @@ _getch();
 void dis_menu(int choose,int stp) {
     system("cls");
     printf("%sMain Menu%s\n\n",c2(14),c2(0));
-    printf("%s%sCode Quiz%s\n",choose==1?"-> ":"   ",c2(11),c2(0));
-    printf("%s%sSyntax Sprint%s\n",choose==2?"-> ":"   ",c2(12),c2(0));
-    printf("%s%sBug Hunter%s\n",choose==3?"-> ":"   ",c2(13),c2(0));
-    printf("%s%sType Master%s\n",choose==4?"-> ":"   ",c2(14),c2(0));
-    printf("%s%sMix Mode%s\n",choose==5?"-> ":"   ",c2(15),c2(0));
-    printf("%s%sExit%s\n",choose==6?"-> ":"   ",c2(10),c2(0));
+    printf("%s%sCode Quiz%s\n",c2(11),choose==1?"-> ":"   ",c2(0));
+    printf("%s%sSyntax Sprint%s\n",c2(12),choose==2?"-> ":"   ",c2(0));
+    printf("%s%sBug Hunter%s\n",c2(13),choose==3?"-> ":"   ",c2(0));
+    printf("%s%sType Master%s\n",c2(14),choose==4?"-> ":"   ",c2(0));
+    printf("%s%sMix Mode%s\n",c2(15),choose==5?"-> ":"   ",c2(0));
+    printf("%s%sExit%s\n",c2(10),choose==6?"-> ":"   ",c2(0));
     if(stp==0){
         c1(14);
          printf("\n\n Navigation arows written down blow\n\n");
