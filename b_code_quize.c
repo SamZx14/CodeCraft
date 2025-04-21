@@ -5,8 +5,6 @@ void code_quiz() {
     c1(6);
     printf("Starting Code Quiz...\n");
     // Implement the Code Quiz game logic here
-    //test q 1
-    printf("what is your name?\n");
     c1(3);
             printf("\nPress any key to return to the menu...\n");
             
