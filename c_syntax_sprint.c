@@ -3,10 +3,10 @@
 void  syntax_sprint() {
     system("cls");
     c1(6);
-    printf("Starting Syntax Sprint...\n");
+    animation("Starting Syntax Sprint...\n",2);
     // Add logic for syntax sprint here
     c1(13);
-            printf("\nPress any key to return to the menu...\n");
+            animation("\nPress any key to return to the menu...\n",2);
         _getch();
         c1(7);
 }

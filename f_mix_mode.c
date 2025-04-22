@@ -2,11 +2,10 @@
 
 void mix_mode() {
     system("cls");
-    printf("%s",c2(15));
-    printf("Starting Mix Mode...\n");
+    animation("\033[1;32mStarting Mix Mode...\n",2);
     // Implement the Mix Mode game logic here
     c1(11);
-        printf("\nPress any key to return to the menu...");
+        animation("\nPress any key to return to the menu...",2);
         _getch();
         c1(7);
 }
