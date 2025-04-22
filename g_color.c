@@ -1,9 +1,24 @@
 #include<stdio.h>
 #include<windows.h>
+#include <stdlib.h>  // For system calls like "cls" (optional)
+#include <time.h>    // For struct timespec and nanosleep
+#include <conio.h>   // For _getch() (optional)
+
+void animation (const char *title,double time_set){
+    struct timespec dily;
+    dily.tv_sec =0;
+    dily.tv_nsec =100000000/time_set;
+    for (int i=0;title[i]!='\0';i++){
+        printf("%c",title[i]);
+        fflush(stdin);
+        nanosleep(&dily,NULL);
+    }
+}
 
 void c1(int color){
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
+
 
 const char* c2(int color){
     const char *ar[] = {

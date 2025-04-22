@@ -2,11 +2,10 @@
 
 void bug_hunter() {
     system("cls");
-    printf("%s",c2(14));
-    printf("Starting Bug Hunter...\n");
+    animation("\033[1;35mStarting Bug Hunter...\n",2);
     // Implement the Bug Hunter game logic here
-        c1(13);
-            printf("\nPress any key to return to the menu...\n");
+        c1(14);
+            animation("\nPress any key to return to the menu...\n",2);
         _getch();
         c1(7);
 }
