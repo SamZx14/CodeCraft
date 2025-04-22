@@ -7,33 +7,33 @@ void c1(int color){
 
 const char* c2(int color){
     const char *ar[] = {
-        "\033[0m",                // Reset to default color
-        "\033[0;30m",             // Black
-        "\033[0;31m",             // Red
-        "\033[0;32m",             // Green
-        "\033[0;33m",             // Yellow
-        "\033[0;34m",             // Blue
-        "\033[0;35m",             // Magenta
-        "\033[0;36m",             // Cyan
-        "\033[0;37m",             // White
+        "\033[0m",                // Reset to default color 0
+        "\033[0;30m",             // Black 1
+        "\033[0;31m",             // Red 2 
+        "\033[0;32m",             // Green 3
+        "\033[0;33m",             // Yellow 4
+        "\033[0;34m",             // Blue 5
+        "\033[0;35m",             // Magenta 6
+        "\033[0;36m",             // Cyan 7
+        "\033[0;37m",             // White 8
     
-        "\033[1;30m",             // Bold Black
-        "\033[1;31m",             // Bold Red
-        "\033[1;32m",             // Bold Green
-        "\033[1;33m",             // Bold Yellow
-        "\033[1;34m",             // Bold Blue
-        "\033[1;35m",             // Bold Magenta
-        "\033[1;36m",             // Bold Cyan
-        "\033[1;37m",             // Bold White
+        "\033[1;30m",             // Bold Black 9
+        "\033[1;31m",             // Bold Red 10
+        "\033[1;32m",             // Bold Green 11
+        "\033[1;33m",             // Bold Yellow 12
+        "\033[1;34m",             // Bold Blue 13
+        "\033[1;35m",             // Bold Magenta 14
+        "\033[1;36m",             // Bold Cyan 15
+        "\033[1;37m",             // Bold White 16
     
-        "\033[40m",              // Black Background
-        "\033[41m",              // Red Background
-        "\033[42m",              // Green Background
-        "\033[43m",              // Yellow Background
-        "\033[44m",              // Blue Background
-        "\033[45m",              // Magenta Background
-        "\033[46m",              // Cyan Background
-        "\033[47m",              // White Background
+        "\033[40m",              // Black Background 17 
+        "\033[41m",              // Red Background 18
+        "\033[42m",              // Green Background 19
+        "\033[43m",              // Yellow Background 20
+        "\033[44m",              // Blue Background 21
+        "\033[45m",              // Magenta Background 22
+        "\033[46m",              // Cyan Background 23
+        "\033[47m",              // White Background 24
     };
     
     return ar[color];
