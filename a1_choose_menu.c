@@ -60,13 +60,13 @@ c1(7);
 void dis_about(){
 system ("cls");
 // write the about code here
-// Start code billah
-printf("Hello world!\nWelcome to codecraft\n");
-printf("Hello world!\nWelcome to codecraft\n");
-printf("Hello world!\nWelcome to codecraft\n");
-printf("Hello world!\nWelcome to codecraft\n");
-// Code end here
-    
+    // start sayem code
+    animation("\033[1;31mAbout CodeCraft\n\n",1);
+    animation("\033[0;33mCodeCraft is a game designed to test your coding skills.\n",2);
+    animation("\033[0;34mIt includes various challenges and quizzes to help you improve.\n",2);
+    animation("\033[0;35mDeveloped by [Your Name]\n",2);
+    animation("\033[0;36mVersion 1.0\n",2);
+    // end sayem code
 
 c1(3);
 printf("\nPress any key to return to the menu...\n");
