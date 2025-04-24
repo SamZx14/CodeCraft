@@ -54,6 +54,12 @@ c1(7);
 void dis_about(){
 system ("cls");
 // write the about code here
+// Start code billah
+printf("Hello world!\nWelcome to codecraft\n");
+printf("Hello world!\nWelcome to codecraft\n");
+printf("Hello world!\nWelcome to codecraft\n");
+printf("Hello world!\nWelcome to codecraft\n");
+// Code end here
     
 
 c1(3);
