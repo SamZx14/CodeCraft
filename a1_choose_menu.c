@@ -51,6 +51,15 @@ void dis_about(){
 system ("cls");
 // write the about code here
     
+// start code from billah
+    c1(3);
+    printf("\n\n\t\t\t\t\tAbout CodeCraft\n\n");
+    c1(7);
+    printf("\tCodeCraft is a game designed to test your coding skills.\n");
+    printf("\tIt consists of various challenges that will help you improve your coding abilities.\n");
+    printf("\tThe game is designed to be fun and educational at the same time.\n");
+    printf("\tWe hope you enjoy playing it as much as we enjoyed creating it!\n\n");
+// end code from billah
 
 
 c1(3);
