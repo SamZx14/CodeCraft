@@ -45,12 +45,7 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
-// start sayem code 
-    
-        animation("\033[1;31mThank you for playing CodeCraft!\n\n",1);
-        animation("\033[0;33mWe hope you enjoyed the game.\n",2);    
-        animation ("\033[0;34mGoodbye!\n",2);
-// end sayem code
+
 c1(3);
 printf("\nPress any key to return to the menu...\n");
 _getch();
@@ -60,13 +55,6 @@ c1(7);
 void dis_about(){
 system ("cls");
 // write the about code here
-    // start sayem code
-    animation("\033[1;31mAbout CodeCraft\n\n",1);
-    animation("\033[0;33mCodeCraft is a game designed to test your coding skills.\n",2);
-    animation("\033[0;34mIt includes various challenges and quizzes to help you improve.\n",2);
-    animation("\033[0;35mDeveloped by [Your Name]\n",2);
-    animation("\033[0;36mVersion 1.0\n",2);
-    // end sayem code
 
 c1(3);
 printf("\nPress any key to return to the menu...\n");
