@@ -50,6 +50,7 @@ void dis_exit(){
 void dis_about(){
 system ("cls");
 // write the about code here
+<<<<<<< HEAD
     
 // start code from billah
     c1(3);
@@ -60,6 +61,15 @@ system ("cls");
     printf("\tThe game is designed to be fun and educational at the same time.\n");
     printf("\tWe hope you enjoy playing it as much as we enjoyed creating it!\n\n");
 // end code from billah
+=======
+// start code of samira
+    animation("\033[1;36mAbout CodeCraft\n\n",2);
+    animation("\033[0;37mA game to test your coding skills.\n",2);
+    animation("\033[0;33mDeveloped by [Your Name]\n",2);
+    animation("\033[0;32mVersion 1.0\n",2);
+    animation("\033[0;34mPress any key to return to the menu...\n",2);
+// end code of samira
+>>>>>>> e6c8f18ee8f1010ee405ec5a1c29d7f9be6690a9
 
 
 c1(3);
