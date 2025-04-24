@@ -50,14 +50,7 @@ void dis_exit(){
 void dis_about(){
 system ("cls");
 // write the about code here
-// start code of samira
-    animation("\033[1;36mAbout CodeCraft\n\n",2);
-    animation("\033[0;37mA game to test your coding skills.\n",2);
-    animation("\033[0;33mDeveloped by [Your Name]\n",2);
-    animation("\033[0;32mVersion 1.0\n",2);
-    animation("\033[0;34mPress any key to return to the menu...\n",2);
-// end code of samira
-
+    
 
 c1(3);
 printf("\nPress any key to return to the menu...\n");
