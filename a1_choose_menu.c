@@ -45,6 +45,12 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
+// start sayem code 
+    
+        animation("\033[1;31mThank you for playing CodeCraft!\n\n",1);
+        animation("\033[0;33mWe hope you enjoyed the game.\n",2);    
+        animation ("\033[0;34mGoodbye!\n",2);
+// end sayem code
 c1(3);
 printf("\nPress any key to return to the menu...\n");
 _getch();
