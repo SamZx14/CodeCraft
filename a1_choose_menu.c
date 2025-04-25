@@ -45,7 +45,10 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
-
+//start code -samira
+animation("i am sam\n",1.5);
+animation("hihihihihihihihihihihihihihihi\n",2);
+//end code -samira
  
 c1(3);
 printf("\nPress any key to return to the menu...\n");
