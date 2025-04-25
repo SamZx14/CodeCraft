@@ -45,6 +45,7 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
+
  
 c1(3);
 printf("\nPress any key to return to the menu...\n");
@@ -55,7 +56,6 @@ c1(7);
 void dis_about(){
 system ("cls");
 // write the about code here
-    
 
 c1(3);
 printf("\nPress any key to return to the menu...\n");
