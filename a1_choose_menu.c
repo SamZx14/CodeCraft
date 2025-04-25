@@ -45,6 +45,8 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
+// start code billah 
+animation("I am billu bhai\n",1);
 
  
 c1(3);
