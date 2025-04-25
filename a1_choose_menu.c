@@ -45,10 +45,14 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
-// start code -sayem
+
    animation("I am sayem\n",1.5);
    animation("I am a student of CSE\n",2);
 // end code -sayem
+// start code billah 
+animation("I am billu bhai\n",1);
+
+// start code -sayem
  
 c1(3);
 printf("\nPress any key to return to the menu...\n");
