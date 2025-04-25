@@ -45,7 +45,8 @@ void dis_menu(int choose,int stp) {
 void dis_exit(){
     system("cls");
 // write the exit code here
-
+//start code -suborna
+animation("iam bby's bby\n",1);
  
 c1(3);
 printf("\nPress any key to return to the menu...\n");
