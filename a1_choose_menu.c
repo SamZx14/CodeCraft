@@ -58,8 +58,12 @@ animation("I am billu bhai\n",1);
 
 // start code -sayem
 >>>>>>> 8e035717ff01a7e241401de9e31ee7d79790f0d4
+// start code - shinzu
+animation("me the real dim",2);
+//end code - shinzu
+
  
-c1(3);
+c1(5);
 printf("\nPress any key to return to the menu...\n");
 _getch();
 c1(7);
