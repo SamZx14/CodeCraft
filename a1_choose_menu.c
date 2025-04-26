@@ -96,17 +96,17 @@ system ("cls");
 animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
 //end code -SAMIRA
 //start code Samira
-animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\n\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill \033[1;37m, \033[0;36mlogic building\nskill \033[1;37m, \033[0;36m typing skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m. If you are a beginner in programming\nand looking to strengthen your fundamentals with easy syntax and with fun then \033[1;33mCODECRAFT \033[1;37moffers you a \033[0;35mdynamic and\nchallenging experience.\n\n\n",6.5);
+animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\n\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill \033[1;37m, \033[0;36mlogic building\nskill\033[1;37m,\033[0;36m typing skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m. If you are a beginner in programming\nand looking to strengthen your  fundamentals with easy syntax and with fun then \033[1;33m CODECRAFT \033[1;37moffers you a \033[0;35mdynamic and\nchallenging experience.\n\n\n",6.5);
            
 animation("\033[1;32mMini-Games Breakdown :\n\n",2);
 
-animation("\033[1;32m} \033[1;31mCODE QUIZ \033[0;32m==> \033[1;37mTest your knowledge of C Programming  with a fast-paced quiz ! Answer multiple-choice questions\n                covering concepts, functions and logic to prove your expertise.\n\n",5.5);
+animation("\033[1;32m} \033[1;31mCODE QUIZ \033[0;32m==> \033[1;37mTest your knowledge of  C Programming  with a  fast-paced quiz !  Answer  multiple-choice  questions\n  covering concepts, functions and logic to prove your expertise.\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race against time ! Fill in the missing syntax in incomplete code snippets. Can you\n                    reconstruct the code correctly before the clock runs out..?\n\n",5.5);
+animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race against time! Fill in the missing syntax in incomplete code snippets. Can you reconstruct\n  the code correctly before the clock runs out..?\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors in buggy code segments, fix and make the program run smoothly.\n                 Perfect for improving problem-solving skills.\n\n",5.5);
+animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors  in buggy code segments, fix  and make the program run smoothly.\n  Perfect for improving problem-solving skills.\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy matter! Type out given code snippets within a strict time limit. The faster\n                  and more precise you are, the higher you score!\n\n\n",5.5);
+animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy  matter! Type out  given code snippets  within a strict  time limit. The faster\n  and more precise you are, the higher you score!\n\n\n",5.5);
 //end code -SAMIRA
 
 //start code -SAMIRA
