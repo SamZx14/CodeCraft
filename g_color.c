@@ -8,10 +8,13 @@ void animation (const char *title,double time_set){
     struct timespec dily;
     dily.tv_sec =0;
     dily.tv_nsec =100000000/time_set;
+    int ck=1;
     for (int i=0;title[i]!='\0';i++){
+        if(title[i] == '\033' && title[i + 1] == '[')ck=0;
+        if(title[i]=='m'&&ck==0)ck=1;
         printf("%c",title[i]);
         fflush(stdin);
-        nanosleep(&dily,NULL);
+       if(ck) nanosleep(&dily,NULL);
     }
 }
 
