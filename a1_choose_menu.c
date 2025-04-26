@@ -19,11 +19,11 @@ void dis_nvg(int *stp){
 void dis_wel(){
     system("cls");
     
-    animation("\033[1;31mWELCOME TO CODECRAFT !\n\n",1);
+    animation("\033[1;31mWELCOME TO CODECRAFT !\n\n",2);
     
-    animation("\033[0;33mA game to test your coding skills.\n",2);    
+    animation("\033[0;33mA game to test your coding skills.\n",2.5);    
      
-    animation ("\033[0;34mPress any key to continue...\n",2);
+    animation ("\033[0;34mPress any key to continue...\n",3);
 _getch();
 }
 void dis_menu(int choose,int stp) {
@@ -96,38 +96,34 @@ system ("cls");
 animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
 //end code -SAMIRA
 //start code Samira
-animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill\033[1;37m, \033[0;36mlogic building skill \033[1;37m,\n\033[0;36mtyping skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m.\nIf you are a beginner in programming and looking to strengthen your fundamentals with easy syntax and with fun\nthen \033[1;33mCODECRAFT \033[1;37moffers you a \033[0;35mdynamic and challenging experience.\n\n\n",2);
+animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill\033[1;37m, \033[0;36mlogic building skill \033[1;37m,\n\033[0;36mtyping skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m.\nIf you are a beginner in programming and looking to strengthen your fundamentals with easy syntax and with fun\nthen \033[1;33mCODECRAFT \033[1;37moffers you a \033[0;35mdynamic and challenging experience.\n\n\n",6.5);
            
 animation("\033[1;32mMini-Games Breakdown :\n\n",2);
 
-animation("\033[1;32m} \033[1;31mCODE QUIZ \033[0;32m==> \033[1;37mTest your knowledge of C Programming  with a fast-paced quiz ! Answer multiple-choice questions covering concepts, functions, and logic to prove your expertise.\n",3);
+animation("\033[1;32m} \033[1;31mCODE QUIZ \033[0;32m==> \033[1;37mTest your knowledge of C Programming  with a fast-paced quiz !\nAnswer multiple-choice questions covering concepts, functions and logic to prove your expertise.\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race against time! Fill in the missing syntax in incomplete code snippets. Can you reconstruct the code correctly before the clock runs out..?\n",3);
+animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race against time ! Fill in the missing syntax in incomplete code snippets.\nCan you reconstruct the code correctly before the clock runs out..?\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors in buggy code segments, fix them, and make the program run smoothly. Perfect for improving problem-solving skills.\n",3);
+animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors in buggy code segments, fix them, and make the program run smoothly.\nPerfect for improving problem-solving skills.\n\n",5.5);
 
-animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy matter! Type out given code snippets within a strict time limit. The faster and more precise you are, the higher you score!\n\n\n",3);
+animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy matter! Type out given code snippets within a strict time limit.\nThe faster and more precise you are, the higher you score!\n\n\n",5.5);
 //end code -SAMIRA
 
 //start code -SAMIRA
 animation("\033[1;36mGame Modes & Difficulty Levels For \033[1;34mCODECRAFTERS \033[1;36m: ",3.5);
 printf("%s  (x.x)\n\n\n",c2(10));
 
-animation("\033[1;32mEasy \033[0;37m, \033[1;33mMedium \033[0;37m, \033[1;31mHard ",4);
+animation("\033[1;32mEasy \033[0;37m, \033[1;33mMedium \033[0;37m, \033[1;31mHard \033[0;36m--> \033[0;37mEach mini-game features three difficulty levels, ensuring a smooth learning curve.\n\n",4.5);
 
-animation("\033[0;36m--> \033[0;37mEach mini-game features three difficulty levels, ensuring a smooth learning curve.\n\n",4.5);
+animation("\033[1;35mMIX MODE \033[0;36m--> \033[0;37mFeeling adventurous ? \033[1;31m(*.0) \033[0;37mPlay a randomized mix of all four games for the ultimate coding challenge !\n\n\n",4.5);
 
-animation("\033[1;35mMIX MODE ",4);
-
-animation("\033[0;36m--> \033[0;37mFeeling adventurous ? \033[1;31m(*.0) \033[0;37mPlay a randomized mix of all four games for the ultimate coding challenge !\n\n\n",4.5);
-
-animation("\033[1;35mWhy Play CODECRAFT ?\n\n",3);
+animation("\033[1;35mWhy Play CODECRAFT ?\n\n",3.5);
 
 animation("\033[1;32mo \033[0;37mLearn C Programming in a Fun Way\n\033[1;32mo \033[0;37mImprove Debugging & Syntax Skills\n\033[1;32mo \033[0;37mEnhance Typing Speed for Coding\n\033[1;32mo \033[0;37mTest Knowledge with Real-World Challenges\n\033[1;32mo \033[0;37mCompete Against Yourself & Beat High Scores\n\n\033[0;36mDive into \033[1;34mCODECRAFT \033[0;36mand transform coding practice into an exciting adventure ! \n\033[1;37mCan you conquer all levels and become the ultimate \033[0;34mCODECRAFTER ? \033[1;31m(0-0)\n\n\n",5);
 
-animation("\033[1;33mTHE C GURU :\n\n",2);
+animation("\033[1;33mTHE C GURU :\n\n",3);
 
-animation("\033[1;32m* \033[0;34mSayem Islam Leon\n\033[1;32m> \033[1;36mID : \033[0;37m20244103117\n\033[1;32m* \033[0;31mSamira  Ibrahim\n\033[1;32m> \033[1;36mID : \033[0;37m20244103085\n\033[1;32m* \033[0;32mMotmayeen Billah\n\033[1;32m> \033[1;36mID : \033[0;37m20244103083\n\033[1;32m* \033[0;35mSuborna Akter\n\033[1;32m> \033[1;36mID : \033[0;37m20244103092\n\033[1;32m* \033[0;33mFarjana Shanjida Shinzu\n\033[1;32m> \033[1;36mID : \033[0;37m20244103115\n\n",3);
+animation("\033[1;32m* \033[0;34mSayem Islam Leon\n\033[1;32m> \033[1;36mID : \033[0;37m20244103117\n\033[1;32m* \033[0;31mSamira  Ibrahim\n\033[1;32m> \033[1;36mID : \033[0;37m20244103085\n\033[1;32m* \033[0;32mMotmayeen Billah\n\033[1;32m> \033[1;36mID : \033[0;37m20244103083\n\033[1;32m* \033[0;35mSuborna Akter\n\033[1;32m> \033[1;36mID : \033[0;37m20244103092\n\033[1;32m* \033[0;33mFarjana Shanjida Shinzu\n\033[1;32m> \033[1;36mID : \033[0;37m20244103115\n\n",4);
 //end code -SAMIRA
 
 printf("\nPress any key to return to the menu...\n");
