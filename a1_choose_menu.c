@@ -52,7 +52,33 @@ printf("%s  (^-^)\n\n\n",c2(10));
 
 animation("\033[0;34m=>> Did You Enjoy The Coding Adventure ?",3);
 printf("%s  (*o*)\n\n",c2(10));
-printf("%sYou've just experienced the amazing world of %sCODECRAFT %sby being our amazing %sCODECRAFTER %swhile having a blast of enjoyment ! \nWe hope you leveled up your programming prowess by aced %sCODE QUIZ %s, raced against logic in %sSYNTAX SPRINT %s, hunted down bugs wildly in %sBUG HUNTER  %sor typed like a pro in %sTYPE MASTER %s.\n\n\n",c2(8),c2(13),c2(8),c2(5),c2(8),c2(2),c2(8),c2(2),c2(8),c2(10),c2(8),c2(2),c2(8));
+animation("\033[1;37mYou've just experienced the amazing world of ",3);
+
+animation("\033[1;34mCODECRAFT ",3);
+
+animation("\033[1;37mby being our amazing ",3);
+
+animation("\033[0;34mCODECRAFTER ",3);
+
+animation("\033[1;37mwhile having a blast of enjoyment ! \n",3);
+
+animation("\033[1;37mWe hope you leveled up your programming prowess by aced ",3);
+
+animation("\033[1;31mCODE QUIZ ",3);
+
+animation("\033[1;37m, raced against logic in ",3);
+
+animation("\033[1;31mSYNTAX SPRINT ",3);
+
+animation("\033[1;37m, hunted down bugs wildly in ",3);
+
+animation("\033[1;31mBUG HUNTER  ",3);
+
+animation("\033[1;37mor typed like a pro in ",3);
+
+animation("\033[1;31mTYPE MASTER ",3);
+
+animation("\033[1;37m.\n\n\n",3);
 
 animation("\033[1;32m=>> WHAT'S NEXT ?",3);
 printf("%s  (*-*)\n\n",c2(10));
@@ -92,6 +118,11 @@ c1(7);
 void dis_about(){
 system ("cls");
 // write the about code here
+//start code -SAMIRA
+animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
+
+
+
 
 c1(3);
 printf("\nPress any key to return to the menu...\n");
