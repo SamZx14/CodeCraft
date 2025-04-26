@@ -19,7 +19,7 @@ void dis_nvg(int *stp){
 void dis_wel(){
     system("cls");
     
-    animation("\033[1;31mWelcome to CodeCraft!\n\n",1);
+    animation("\033[1;31mWELCOME TO CODECRAFT !\n\n",1);
     
     animation("\033[0;33mA game to test your coding skills.\n",2);    
      
@@ -75,7 +75,7 @@ printf("%s  (>-<)\n\n",c2(10));
 animation("\033[1;37mThe best debugger is a good night's sleep ... or another round of ",2);
 printf("%sCODECRAFT !\n\n",c2(13));
 
-animation("\033[1;33m=>>Made With :\n\n",3.5);
+animation("\033[1;33m=>> Made With :\n\n",3.5);
 
 animation("\033[1;31m*THE C GURU*",3);
 printf("%s  (*+*)\n\n",c2(10));
@@ -84,7 +84,7 @@ animation("\033[1;34m# Keep Coding... Keep Crafting...#\n\n",1.5);
 //end code -SAMIRA
 
 c1(5);
-printf("\nPress any key to return to the menu...\n");
+printf("\nPress any key to exit the game...\n");
 _getch();
 c1(7);
 }
@@ -95,21 +95,32 @@ system ("cls");
 //start code -SAMIRA
 animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
 //end code -SAMIRA
+//start code Samira
+animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill\033[1;37m, \033[0;36mlogic building skill \033[1;37m,\n\033[0;36mtyping skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m.\nIf you are a beginner in programming and looking to strengthen your fundamentals with easy syntax and with fun\nthen \033[1;33mCODECRAFT \033[1;37moffers you a \033[0;35mdynamic and challenging experience.\n\n\n",2);
+           
+animation("\033[1;32mMini-Games Breakdown :\n\n",2);
 
+animation("\033[1;32m} \033[1;31mCODE QUIZ \033[0;32m==> \033[1;37mTest your knowledge of C Programming  with a fast-paced quiz ! Answer multiple-choice questions covering concepts, functions, and logic to prove your expertise.\n",3);
+
+animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race against time! Fill in the missing syntax in incomplete code snippets. Can you reconstruct the code correctly before the clock runs out..?\n",3);
+
+animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors in buggy code segments, fix them, and make the program run smoothly. Perfect for improving problem-solving skills.\n",3);
+
+animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy matter! Type out given code snippets within a strict time limit. The faster and more precise you are, the higher you score!\n\n\n",3);
+//end code -SAMIRA
 
 
 //start code -SAMIRA
 animation("\033[1;36mGame Modes & Difficulty Levels For \033[1;34mCODECRAFTERS \033[1;36m: ",3.5);
-
 printf("%s  (x.x)\n\n\n",c2(10));
 
 animation("\033[1;32mEasy \033[0;37m, \033[1;33mMedium \033[0;37m, \033[1;31mHard ",4);
 
-animation("\033[0;37m--> Each mini-game features three difficulty levels, ensuring a smooth learning curve.\n\n",4.5);
+animation("\033[0;36m--> \033[0;37mEach mini-game features three difficulty levels, ensuring a smooth learning curve.\n\n",4.5);
 
 animation("\033[1;35mMIX MODE ",4);
 
-animation("\033[0;37m--> Feeling adventurous ? \033[1;31m(*.0) \033[0;37mPlay a randomized mix of all four games for the ultimate coding challenge !\n\n\n",4.5);
+animation("\033[0;36m--> \033[0;37mFeeling adventurous ? \033[1;31m(*.0) \033[0;37mPlay a randomized mix of all four games for the ultimate coding challenge !\n\n\n",4.5);
 
 animation("\033[1;35mWhy Play CODECRAFT ?\n\n",3);
 
