@@ -109,7 +109,6 @@ animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a
 animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy matter! Type out given code snippets within a strict time limit. The faster and more precise you are, the higher you score!\n\n\n",3);
 //end code -SAMIRA
 
-
 //start code -SAMIRA
 animation("\033[1;36mGame Modes & Difficulty Levels For \033[1;34mCODECRAFTERS \033[1;36m: ",3.5);
 printf("%s  (x.x)\n\n\n",c2(10));
