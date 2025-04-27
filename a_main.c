@@ -14,7 +14,7 @@ int main (){
     int choose=1,stp=0;
     char ch;
     while(1){
-        
+        if (stp==0)  dis_nvg(&stp);
         dis_menu(choose,stp++);
         ch=_getch();
         if((ch=='w'|| ch=='W')&& choose>1) choose --;

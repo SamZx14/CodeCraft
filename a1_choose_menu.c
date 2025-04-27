@@ -3,44 +3,71 @@
 #include<conio.h>  
 
 #include "g_color.c"
+#include "h_consol.c"
 
 void dis_nvg(int *stp){
-    if(*stp==0){
-        *stp++;
-        c1(14);
-         animation("\n\n Navigation arows written down blow\n\n",2);
-         printf("\t\tW\n \t\t^\n\n\n");
-         printf("\tA<\tS\t>D\n\n\n");
-         printf("\t\tv\n\t\tX\n\n");
+    system("cls");
+    pair W_size = get_cnl_wh();
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+         c1(14);
+         set_cnl_pos((W_size.x/2)-17,(W_size.y/2)-7);
+         animation("Navigation arows written down blow",2);
+         set_cnl_pos((W_size.x/2)-1,(W_size.y/2)-4);
+         printf("W");
+         set_cnl_pos((W_size.x/2)-1,(W_size.y/2)-3);
+         printf("^");
+         set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-1);
+         printf("A<    S    >D");
+         set_cnl_pos((W_size.x/2)-1,(W_size.y/2)+1); 
+         printf("v");
+         set_cnl_pos((W_size.x/2)-1,(W_size.y/2)+2);
+         printf("X");
+        set_cnl_pos((W_size.x/2)-14,(W_size.y/2)+5);
+        animation("\033[1;35mPress any key to continue...\n",2);
         c1(7);
-    }
-
+        _getch();
 }
+
+
 void dis_wel(){
     system("cls");
-    
+    pair W_size = get_cnl_wh(); 
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+    set_cnl_pos((W_size.x/2)-11,(W_size.y/2)-2);
     animation("\033[1;31mWELCOME TO CODECRAFT !\n\n",2);
-    
+    set_cnl_pos((W_size.x/2)-17 ,(W_size.y/2));
     animation("\033[0;33mA game to test your coding skills.\n",2.5);    
-     
+    set_cnl_pos((W_size.x/2)-14 ,(W_size.y/2)+1);
     animation ("\033[0;34mPress any key to continue...\n",3);
 _getch();
 }
+
+
 void dis_menu(int choose,int stp) {
     system("cls");
+    pair W_size = get_cnl_wh();
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+    set_cnl_pos((W_size.x/2)-4,4);
     if(stp==0) animation("\033[1;35mMain Menu\n\n",2);
     else printf("%sMain Menu%s\n\n",c2(14),c2(0));
-    
-    
-    
-    printf("%s%sCode Quiz%s\n",c2(11),choose==1?"-> ":"   ",c2(0));
-    printf("%s%sSyntax Sprint%s\n",c2(12),choose==2?"-> ":"   ",c2(0));
-    printf("%s%sBug Hunter%s\n",c2(13),choose==3?"-> ":"   ",c2(0));
-    printf("%s%sType Master%s\n",c2(14),choose==4?"-> ":"   ",c2(0));
-    printf("%s%sMix Mode%s\n",c2(15),choose==5?"-> ":"   ",c2(0));
-    printf("%s%sAbout%s\n",c2(16),choose==6?"-> ":"   ",c2(0));
-    printf("%s%sExit%s\n",c2(10),choose==7?"-> ":"   ",c2(0));
-    dis_nvg(&stp);
+    set_cnl_pos((W_size.x/2)-6,6);
+    printf("%s%sCode Quiz%s\n",c2(11),choose==1?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,7);
+    printf("%s%sSyntax Sprint%s\n",c2(12),choose==2?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,8);
+    printf("%s%sBug Hunter%s\n",c2(13),choose==3?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,9);
+    printf("%s%sType Master%s\n",c2(14),choose==4?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,10);
+    printf("%s%sMix Mode%s\n",c2(15),choose==5?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,11);
+    printf("%s%sAbout%s\n",c2(16),choose==6?"-> ":" ",c2(0));
+    set_cnl_pos((W_size.x/2)-6,12);
+    printf("%s%sExit%s\n",c2(10),choose==7?"-> ":" ",c2(0));
+   
 } 
 
 void dis_exit(){
