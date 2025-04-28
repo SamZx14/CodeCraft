@@ -72,8 +72,10 @@ void dis_menu(int choose,int stp) {
 
 void dis_exit(){
     system("cls");
-// write the exit code here
-//start code -SAMIRA
+    pair W_size = get_cnl_wh();
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+
 animation("\033[1;33mTHANK YOU FOR PLAYING CODECRAFT !",3);
 printf("%s  (^-^)\n\n\n",c2(10));
 
@@ -118,8 +120,10 @@ c1(7);
 
 void dis_about(){
 system ("cls");
-// write the about code here
-//start code -SAMIRA
+pair W_size = get_cnl_wh();
+set_cnl_pos((W_size.x/2)-4,0);
+printf("%sCODECRAFT\n\n",c2(15));
+
 animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
 //end code -SAMIRA
 //start code Samira
