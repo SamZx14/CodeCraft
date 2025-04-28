@@ -26,3 +26,24 @@ void dis_level(int choose,int stp,const char *game)
     if(stp==0) animation("\033[1;35mPlease choose a level... \n",2);
     c1(7);
 }
+
+void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_g ){
+    pair W_size = get_cnl_wh();
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT",c2(15));
+    int len = strlen(name);
+    set_cnl_pos((W_size.x/2)-(len/2),1);
+    printf("%s%s%s",c2(14),name,c2(0));
+    set_cnl_pos((W_size.x/2)-4,3);
+    printf("%sLevel: %d%s",c2(15),lev,c2(0));
+    set_cnl_pos(0,4);
+    printf("%sRound: %d",c2(15),rnd);
+    set_cnl_pos(W_size.x-8,4);
+    printf("%sTime: %d%s",c2(15),tim_g,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %d%s",c2(15),h_score,c2(0));
+    set_cnl_pos(W_size.x-16,W_size.y-1);
+    printf("%sCurrent Score: %d%s",c2(15),c_score,c2(0));
+    set_cnl_pos((W_size.x/2)-4,(W_size.y)-1);
+    printf("%sLife: 03%s",c2(15),c2(0));
+}
