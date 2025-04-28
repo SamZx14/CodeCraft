@@ -2,8 +2,8 @@
 #include<string.h>
 
 
-
-void dis_level(int choose,int stp,const char *game)
+//
+void dis_level(int choose,int stp,const char *game) // Function to display the level selection screen
 {
     system("cls");
     pair W_size = get_cnl_wh();
@@ -27,6 +27,8 @@ void dis_level(int choose,int stp,const char *game)
     c1(7);
 }
 
+// Function to display the score screen
+// This function displays the current score, high score, level, time, and life remaining
 void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_g ){
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-4,0);

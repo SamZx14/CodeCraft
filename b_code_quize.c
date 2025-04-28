@@ -17,6 +17,26 @@ void chose_ans(int choice,int *stp,const char *op_a, const char *op_b, const cha
         printf("%s D:%s %s\n\n",choice==4?"\033[41m":"\033[1;37m",c2(8),op_d);
       
     }
+void ans_nvg(char ch,int *choice,int *ans){
+    if ((ch == 'd' || ch == 'D') && *choice < 4) (*choice)++;
+    else if ((ch == 'a' || ch == 'A') && *choice > 1) (*choice)--;
+    else if ((ch == 'w' || ch == 'W') && (*choice ==3 || *choice ==4)) *choice-=2;
+    else if ((ch == 'x' || ch == 'X') && (*choice ==1 || *choice ==2)) *choice+=2;
+    else if (ch == '\r' || ch == 's' || ch == 'S') {
+        if (*choice == 1) {
+            *ans =1;
+        }
+        else if (*choice == 2) {
+            *ans = 2;
+        }
+        else if (*choice == 3) {
+            *ans = 3;
+        }
+        else if (*choice == 4) {
+            *ans = 4;
+        }
+    }
+}
 
 void easy_q();
 void medium_q();
@@ -36,28 +56,8 @@ int cq1_l1(){
     printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
     chose_ans(choice,&stp,"5", "6", "7", "8");
     ch = _getch();
-    if ((ch == 'd' || ch == 'D') && choice < 4) choice++;
-    else if ((ch == 'a' || ch == 'A') && choice > 1) choice--;
-    else if ((ch == 'w' || ch == 'W') && (choice ==3 || choice ==4)) choice-=2;
-    else if ((ch == 'x' || ch == 'X') && (choice ==1 || choice ==2)) choice+=2;
-    else if (ch == '\r' || ch == 's' || ch == 'S') {
-        if (choice == 1) {
-            ans =1;
-            break;
-        }
-        else if (choice == 2) {
-            ans = 2;
-            break;
-        }
-        else if (choice == 3) {
-            ans = 3;
-            break;
-        }
-        else if (choice == 4) {
-            ans = 4;
-            break;
-        }
-    }
+    ans_nvg(ch,&choice,&ans);
+    if (ans !=0) break;
     stp++;
     }
     if (ans == 1) {

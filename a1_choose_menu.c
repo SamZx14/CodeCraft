@@ -1,18 +1,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>  
-
+//
 #include "g_color.c"
 #include "h_consol.c"
 
-void dis_nvg(int *stp){
+
+void dis_nvg(int *stp){  // Navigation screen
     system("cls");
-    pair W_size = get_cnl_wh();
+    pair W_size = get_cnl_wh(); // Get console window size
     set_cnl_pos((W_size.x/2)-4,0);
-    printf("%sCODECRAFT\n\n",c2(15));
+    printf("%sCODECRAFT\n\n",c2(15));  
          c1(14);
+
          set_cnl_pos((W_size.x/2)-17,(W_size.y/2)-7);
-         animation("Navigation arows written down blow",2);
+         animation("Navigation arrows written down below",2);
          set_cnl_pos((W_size.x/2)-1,(W_size.y/2)-4);
          printf("W");
          set_cnl_pos((W_size.x/2)-1,(W_size.y/2)-3);
@@ -29,10 +31,11 @@ void dis_nvg(int *stp){
         _getch();
 }
 
-
+// Function to display the welcome screen
 void dis_wel(){
     system("cls");
-    pair W_size = get_cnl_wh(); 
+    pair W_size = get_cnl_wh(); // Get console window size
+
     set_cnl_pos((W_size.x/2)-4,0);
     printf("%sCODECRAFT\n\n",c2(15));
     set_cnl_pos((W_size.x/2)-11,(W_size.y/2)-2);
@@ -44,10 +47,11 @@ void dis_wel(){
 _getch();
 }
 
-
+// Function to display the main menu
 void dis_menu(int choose,int stp) {
     system("cls");
-    pair W_size = get_cnl_wh();
+    pair W_size = get_cnl_wh(); // Get console window size
+
     set_cnl_pos((W_size.x/2)-4,0);
     printf("%sCODECRAFT\n\n",c2(15));
     set_cnl_pos((W_size.x/2)-4,4);
@@ -70,9 +74,11 @@ void dis_menu(int choose,int stp) {
    
 } 
 
+// Function to display the level selection screen
 void dis_exit(){
     system("cls");
-    pair W_size = get_cnl_wh();
+    pair W_size = get_cnl_wh(); // Get console window size
+
     set_cnl_pos((W_size.x/2)-4,0);
     printf("%sCODECRAFT\n\n",c2(15));
 
@@ -118,15 +124,16 @@ _getch();
 c1(7);
 }
 
+// Function to display the about screen
 void dis_about(){
 system ("cls");
-pair W_size = get_cnl_wh();
+pair W_size = get_cnl_wh(); // Get console window size
+
 set_cnl_pos((W_size.x/2)-4,0);
 printf("%sCODECRAFT\n\n",c2(15));
 
 animation("\033[1;34mABOUT CODECRAFT :\n\n\n",2);
-//end code -SAMIRA
-//start code Samira
+
 animation("\033[1;37mWelcome to \033[0;35mThe Ultimate Coding Challenge Arena \033[1;33mCODECRAFT \033[1;37m; The World of \033[0;33mConsole-based C Game\033[1;37m.\n\nThis is an interactive game designed with the combination of \033[0;36mlearning skill \033[1;37m, \033[0;36mquick-thinking skill \033[1;37m, \033[0;36mlogic building\nskill\033[1;37m,\033[0;36m typing skill \033[1;37mwith a lots of fun and entertainment for our \033[0;33mCODECRAFTERS\033[1;37m. If you are a beginner in programming\nand looking to strengthen your  fundamentals with easy syntax and with fun then \033[1;33m CODECRAFT \033[1;37moffers you a \033[0;35mdynamic and\nchallenging experience.\n\n\n",6.5);
            
 animation("\033[1;32mMini-Games Breakdown :\n\n",2);
@@ -138,9 +145,8 @@ animation("\033[1;32m} \033[1;31mSYNTAX SPRINT \033[0;32m==> \033[1;37mA race ag
 animation("\033[1;32m} \033[1;31mBUG HUNTER \033[0;32m==> \033[1;37mDebug like a pro ! Hunt down errors  in buggy code segments, fix  and make the program run smoothly.\n  Perfect for improving problem-solving skills.\n\n",5.5);
 
 animation("\033[1;32m} \033[1;31mTYPE MASTER \033[0;32m==> \033[1;37mSpeed and accuracy  matter! Type out  given code snippets  within a strict  time limit. The faster\n  and more precise you are, the higher you score!\n\n\n",5.5);
-//end code -SAMIRA
 
-//start code -SAMIRA
+
 animation("\033[1;36mGame Modes & Difficulty Levels For \033[1;34mCODECRAFTERS \033[1;36m: ",3.5);
 printf("%s  (x.x)\n\n\n",c2(10));
 
@@ -155,7 +161,7 @@ animation("\033[1;32mo \033[0;37mLearn C Programming in a Fun Way\n\033[1;32mo \
 animation("\033[1;33mTHE C GURU :\n\n",3);
 
 animation("\033[1;32m* \033[0;34mSayem Islam Leon\n\033[1;32m> \033[1;36mID : \033[0;37m20244103117\n\033[1;32m* \033[0;31mSamira  Ibrahim\n\033[1;32m> \033[1;36mID : \033[0;37m20244103085\n\033[1;32m* \033[0;32mMotmayeen Billah\n\033[1;32m> \033[1;36mID : \033[0;37m20244103083\n\033[1;32m* \033[0;35mSuborna Akter\n\033[1;32m> \033[1;36mID : \033[0;37m20244103092\n\033[1;32m* \033[0;33mFarjana Shanjida Shinzu\n\033[1;32m> \033[1;36mID : \033[0;37m20244103115\n\n",4);
-//end code -SAMIRA
+
 
 printf("\nPress any key to return to the menu...\n");
 _getch();
