@@ -1,8 +1,32 @@
 #include<stdio.h>
 #include<string.h>
 
+int ar[5]={0,0,0,0,0}; // Array to store high scores for 5 games
+int high_score_r(int game){
+    FILE *fp;
+    fp = fopen("x_high_score.txt","r+");
+    if(fp != NULL) {
+        for(int i=0;i<5;i++){
+            fscanf(fp,"%d\n",&ar[i]);
+        }
+        fclose(fp);
+    }
+    return ar[game-1];
 
-//
+}
+void high_score_w(int score,int game){
+    high_score_r(game);
+    ar[game-1]=(score > ar[game-1])?score:ar[game-1];
+    FILE *fp;
+    fp = fopen("x_high_score.txt","r+");
+    if (fp != NULL) {
+        for(int i=0;i<5;i++){
+            fprintf(fp,"%d\n",ar[i]);
+        }
+        fclose(fp);
+    }
+}
+
 void dis_level(int choose,int stp,const char *game) // Function to display the level selection screen
 {
     system("cls");
@@ -30,6 +54,7 @@ void dis_level(int choose,int stp,const char *game) // Function to display the l
 // Function to display the score screen
 // This function displays the current score, high score, level, time, and life remaining
 void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_g ){
+
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-4,0);
     printf("%sCODECRAFT",c2(15));
@@ -43,9 +68,11 @@ void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_
     set_cnl_pos(W_size.x-8,4);
     printf("%sTime: %d%s",c2(15),tim_g,c2(0));
     set_cnl_pos(0,W_size.y-1);
-    printf("%sHigh Score: %d%s",c2(15),h_score,c2(0));
-    set_cnl_pos(W_size.x-16,W_size.y-1);
+    printf("%sHigh Score: %d%s",c2(15), high_score_r(h_score),c2(0));
+    set_cnl_pos(W_size.x-18,W_size.y-1);
     printf("%sCurrent Score: %d%s",c2(15),c_score,c2(0));
     set_cnl_pos((W_size.x/2)-4,(W_size.y)-1);
     printf("%sLife: 03%s",c2(15),c2(0));
+    
 }
+
