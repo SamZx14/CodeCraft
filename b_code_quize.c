@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 
-#include "j_game_w.c"
+
 
 const char sm_ar[]={'"','%','&'}; // Array to store special characters for the question
 const char *bc = "\n"; // Variable to store the background color
@@ -60,7 +60,7 @@ int cq1_l1(){ // question 1 for level 1
     // Display the question
     printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
     
-    ans_nvg(&ch,&choice,&ans,1/*ans*/,200/*score increment*/,&stp,"5", "6", "7", "8"); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+    ans_nvg(&ch,&choice,&ans,1/*ans*/,10/*score increment*/,&stp,"5", "6", "7", "8"); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
     if (ans !=0) break;
     stp++;
     }

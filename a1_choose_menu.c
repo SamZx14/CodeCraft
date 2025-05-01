@@ -1,12 +1,89 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>  
-//
+
 #include "g_color.c"
 #include "h_consol.c"
+#include "j_game_w.c"
 
+void user(){
+   
+    pair W_size = get_cnl_wh(); // Get console window size
+    int choose=1;
+    char ch;
+    char username[21];
+    while(1){
+    system("cls");
+        set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+    set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-5);
+    printf("%s--LOGING PAGE--\n",c2(16));
+    set_cnl_pos((W_size.x/2)-5,(W_size.y/2)-3);
+    printf("%s%sLogin%s\n",c2(11),choose==1?"-> ":"   ",c2(0));
+    set_cnl_pos((W_size.x/2)-8,(W_size.y/2)-2);
+    printf("%s%sCreate User%s\n",c2(14),choose==2?"-> ":"   ",c2(0));
 
-void dis_nvg(int *stp){  // Navigation screen
+    ch=_getch();
+        if((ch=='w'|| ch=='W')&& choose>1) choose --;
+        else if((ch=='x' || ch=='X')&& choose<2) choose ++;
+        else if(ch=='\r'|| ch=='s' || ch=='s')
+        {
+          if(choose==1){
+            system("cls");
+            set_cnl_pos((W_size.x/2)-4,0);
+            printf("%sCODECRAFT\n\n",c2(15));
+            set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-5);
+            animation("\033[1;33m--LOGING PAGE--",3);
+            set_cnl_pos((W_size.x/2)-4,(W_size.y/2)-1);
+            printf("%sUsername",c2(11));
+            set_cnl_pos((W_size.x/2)-4,(W_size.y/2));
+            scanf("%10s", username); // Read username from user input
+            system("cls");
+            int inc=search_file(username); // Search for the user file
+
+            if(inc){
+             
+                animation("\n\033[1;31mEnter a key to continue...",2); // Animation function to indicate file not found
+                _getch();
+                return ;// If user file found, return to main menu
+            }
+            
+          } 
+          else if(choose==2){
+            system("cls");
+            set_cnl_pos((W_size.x/2)-4,0);
+            printf("%sCODECRAFT\n\n",c2(15));
+            set_cnl_pos((W_size.x/2)-6,(W_size.y/2)-5);
+            animation("\033[1;33m--SIGN UP--",3);
+            set_cnl_pos((W_size.x/2)-23,(W_size.y/2)-3);
+            printf("%sNote: %sUsername must be less than 20 characters\n",c2(11),c2(7));
+            set_cnl_pos((W_size.x/2)-4,(W_size.y/2)-1);
+            printf("%sUsername\n ",c2(11));
+            set_cnl_pos((W_size.x/2)-4,(W_size.y/2));
+
+            scanf("%20s", username); // Read username from user input
+            system("cls");
+            int inc=create_file(username); // Create a new user file
+
+            if(inc){
+              
+                animation("\n\033[1;31mEnter a key to continue...",2); // Animation function to indicate file not found
+                _getch();
+                return ;// If user file found, return to main menu
+            }
+          }
+         
+          c1(7);
+          printf("\nPress any key to continue...\n");
+          _getch(); // Wait for user input
+        }
+       
+    }
+    
+    
+}
+
+void dis_nvg(){  // Navigation screen
     system("cls");
     pair W_size = get_cnl_wh(); // Get console window size
     set_cnl_pos((W_size.x/2)-4,0);

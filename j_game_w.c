@@ -1,10 +1,64 @@
 #include<stdio.h>
 #include<string.h>
-
+char filename[30]; // Buffer to store the filename
+char ending[] = ".txt";
 int ar[5]={0,0,0,0,0}; // Array to store high scores for 5 games
+    
+int search_file(char name[]){ // Function to search for a file based on the username
+    strcpy(filename, "x_");
+    strcat(filename,name); // Concatenate the username to the filename
+    strcat(filename,ending); // Append the file extension
+    
+    FILE *fp = fopen(filename, "r+"); // Open the file in read/write mode
+    if(fp == NULL) {
+       animation("\033[1;31mUser not found. Create a new account ...\n",2); // Animation function to indicate file not found
+       fclose(fp); // Close the file
+       return 0; // Return 0 to indicate failure
+    } else {
+        char line[50];
+        strcpy(line,"\033[1;35mWelcome ");
+        strcat(line,name); // Concatenate the username to the welcome message
+       animation(line,2); // Animation function to indicate success
+    }
+    fclose(fp); // Close the file
+    return 1;
+}
+
+int create_file(char name[]){ // Function to create a new file based on the username
+    strcpy(filename, "x_"); // Initialize filename with prefix
+    strcat(filename,name); // Concatenate the username to the filename
+    strcat(filename,ending); // Append the file extension
+    
+    FILE *fp = fopen(filename, "r+"); // Open the file in read/write mode
+    if(fp != NULL) {
+       animation("\033[1;31mUser already exist, please login...\n",2);
+       fclose(fp);
+       return 0;
+    }
+
+    else {
+        fp = fopen(filename, "w+"); // Open the file in write mode
+    if(fp == NULL) {
+        animation("\033[1;31mError creating file.\n",2); // Animation function to indicate error
+    } else {
+        char line[50];
+        strcpy(line,"\033[1;35mWelcome ");
+        strcat(line,name); // Concatenate the username to the welcome message
+        animation(line,2); // Animation function to indicate success
+        for(int i=0;i<5;i++){
+            fprintf(fp,"%d\n",0); // Initialize high scores to 0
+        }
+    }
+
+}
+    fclose(fp); // Close the file
+    return 1; // Return 1 to indicate success
+}
+
+
 int high_score_r(int game){
     FILE *fp;
-    fp = fopen("x_high_score.txt","r+");
+    fp = fopen(filename,"r+");
     if(fp != NULL) {
         for(int i=0;i<5;i++){
             fscanf(fp,"%d\n",&ar[i]);
@@ -18,7 +72,7 @@ void high_score_w(int score,int game){
     high_score_r(game);
     ar[game-1]=(score > ar[game-1])?score:ar[game-1];
     FILE *fp;
-    fp = fopen("x_high_score.txt","r+");
+    fp = fopen(filename,"w+");
     if (fp != NULL) {
         for(int i=0;i<5;i++){
             fprintf(fp,"%d\n",ar[i]);

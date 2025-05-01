@@ -11,14 +11,18 @@
 #include "f_mix_mode.c"
 
 int main (){
-    dis_wel(); // Welcome screen
-
     int choose=1,stp=0;
     char ch;
+    dis_wel(); // Welcome screen
+    dis_nvg(); // Navigation screen
+    user(); // User login or account creation
+    
+
+   
     // Main menu loop
     // The loop will continue until the user chooses to exit the game
     while(1){
-        if (stp==0)  dis_nvg(&stp); // Navigation screen
+       
         dis_menu(choose,stp++); // Display the main menu
         ch=_getch();
         if((ch=='w'|| ch=='W')&& choose>1) choose --;
