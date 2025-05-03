@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
-
+#include<time.h>
 
 
 const char sm_ar[]={'"','%','&'}; // Array to store special characters for the question
@@ -10,6 +10,7 @@ int score = 0; // Global variable to keep track of the score
 // Function for andswers navigation
 // This function takes the user's input and checks if it matches the correct answer
 void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp,const char *op_a, const char *op_b, const char *op_c, const char *op_d){
+    
     if (*stp==0) animation("\033[1;32mChoose the correct answer:\n\n\n",3);
     else printf("\033[1;32mChoose the correct answer:\n\n\n");
     
@@ -21,10 +22,10 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp,const char *
       
     *ch= _getch(); // Get user input
     // Check for valid input and update the choice accordingly
-    if ((*ch == 'd' || *ch == 'D') && *choice < 4) (*choice)++;
-    else if ((*ch == 'a' || *ch == 'A') && *choice > 1) (*choice)--;
-    else if ((*ch == 'w' || *ch == 'W') && (*choice ==3 || *choice ==4)) *choice-=2;
-    else if ((*ch == 'x' || *ch == 'X') && (*choice ==1 || *choice ==2)) *choice+=2;
+    if ((*ch == 'd' || *ch == 'D' || *ch == 77) && *choice < 4) (*choice)++;
+    else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
+    else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4)) *choice-=2;
+    else if ((*ch == 'x' || *ch == 'X' || *ch == 80) && (*choice ==1 || *choice ==2)) *choice+=2;
     else if (*ch == '\r' || *ch == 's' || *ch == 'S') {
         if (*choice == 1) *ans = 1; // Option A
         else if (*choice == 2) *ans = 2; // Option B
@@ -34,7 +35,7 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp,const char *
             score += inc; // Increment score by 10 for correct answer
             high_score_w(score, 1); // Update high score for code quiz
             animation("\033[1;32mCorrect!\n", 2);
-            dis_score("CODE QUIZ",1,score,1,1,10); // Update score display
+            dis_score("CODE QUIZ",1,score,1,1,3); // Update score display
         } else {
             animation("\033[1;31mIncorrect! The correct answer is 5.\n", 2);
             printf("%s\n", bc);
@@ -53,7 +54,7 @@ int cq1_l1(){ // question 1 for level 1
     char ch;
     while(1){
     system("cls");
-    dis_score("CODE QUIZ",1/*round */,score,1/*high score index*/,1,10); // pass the game name, round number, current score, high score index, level, and time
+    dis_score("CODE QUIZ",1/*round */,score,1/*high score index*/,1,3); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
     if(stp==0) animation("\033[1;32mWhat is the correct output for x...\n\n",2);
     else printf("\033[1;32mWhat is the correct output for x...\n\n");
@@ -121,8 +122,8 @@ while (1) {
   
     dis_level(choose, stp++, "CODE QUIZ");
     ch = _getch();
-    if ((ch == 'w' || ch == 'W') && choose > 1) choose--;
-    else if ((ch == 'x' || ch == 'X') && choose < 4) choose++;
+    if ((ch == 'w' || ch == 'W' || ch == 72) && choose > 1) choose--;
+    else if ((ch == 'x' || ch == 'X' || ch == 80) && choose < 4) choose++;
     else if (ch == '\r' || ch == 's' || ch == 'S') {
         if (choose == 1) easy_q();
         else if (choose == 2) medium_q();

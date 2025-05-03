@@ -3,8 +3,10 @@
 char filename[30]; // Buffer to store the filename
 char ending[] = ".txt";
 int ar[5]={0,0,0,0,0}; // Array to store high scores for 5 games
+char us[21];
     
 int search_file(char name[]){ // Function to search for a file based on the username
+    strcpy(us,name); // Copy the username to a global variable
     strcpy(filename, "x_");
     strcat(filename,name); // Concatenate the username to the filename
     strcat(filename,ending); // Append the file extension
@@ -25,6 +27,7 @@ int search_file(char name[]){ // Function to search for a file based on the user
 }
 
 int create_file(char name[]){ // Function to create a new file based on the username
+    strcpy(us,name); // Copy the username to a global variable
     strcpy(filename, "x_"); // Initialize filename with prefix
     strcat(filename,name); // Concatenate the username to the filename
     strcat(filename,ending); // Append the file extension
@@ -107,7 +110,7 @@ void dis_level(int choose,int stp,const char *game) // Function to display the l
 
 // Function to display the score screen
 // This function displays the current score, high score, level, time, and life remaining
-void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_g ){
+void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int life ){
 
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-4,0);
@@ -120,13 +123,13 @@ void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int tim_
     set_cnl_pos(0,4);
     printf("%sRound: %d",c2(15),rnd);
     set_cnl_pos(W_size.x-8,4);
-    printf("%sTime: %d%s",c2(15),tim_g,c2(0));
+    printf("%sLife: %d%s",c2(15),life,c2(0));
     set_cnl_pos(0,W_size.y-1);
     printf("%sHigh Score: %d%s",c2(15), high_score_r(h_score),c2(0));
     set_cnl_pos(W_size.x-18,W_size.y-1);
     printf("%sCurrent Score: %d%s",c2(15),c_score,c2(0));
-    set_cnl_pos((W_size.x/2)-4,(W_size.y)-1);
-    printf("%sLife: 03%s",c2(15),c2(0));
+    set_cnl_pos((W_size.x/2)-6,(W_size.y)-1);
+    printf("%sUser: %s%s",c2(15),us,c2(0));
     
 }
 

@@ -25,8 +25,8 @@ int main (){
        
         dis_menu(choose,stp++); // Display the main menu
         ch=_getch();
-        if((ch=='w'|| ch=='W')&& choose>1) choose --;
-        else if((ch=='x' || ch=='X')&& choose<7) choose ++;
+        if((ch=='w'|| ch=='W' || ch == 72)&& choose>1) choose --;
+        else if((ch=='x' || ch=='X' || ch == 80)&& choose<7) choose ++;
         else if(ch=='\r'|| ch=='s' || ch=='s'){
             if(choose==1) code_quiz(); // Call the code quiz function
             else if(choose==2) syntax_sprint(); // Call the syntax sprint function 
