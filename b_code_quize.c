@@ -13,20 +13,19 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp,const char *
     
     if (*stp==0) animation("\033[1;32mChoose the correct answer:\n\n\n",3);
     else printf("\033[1;32mChoose the correct answer:\n\n\n");
-    
+    if ((*ch == 'd' || *ch == 'D' || *ch == 77) && *choice < 4) (*choice)++;
+    else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
+    else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4)) *choice-=2;
+    else if ((*ch == 'x' || *ch == 'X' || *ch == 80) && (*choice ==1 || *choice ==2)) *choice+=2;
         // Display the options with color coding
         printf("%s A:%s %s\t",*choice==1?"\033[41m":"\033[1;37m",c2(8),op_a);
         printf("%s B:%s %s\n\n",*choice==2?"\033[41m":"\033[1;37m",c2(8),op_b);
         printf("%s C:%s %s\t",*choice==3?"\033[41m":"\033[1;37m",c2(8),op_c);
         printf("%s D:%s %s\n\n",*choice==4?"\033[41m":"\033[1;37m",c2(8),op_d);
       
-    *ch= _getch(); // Get user input
     // Check for valid input and update the choice accordingly
-    if ((*ch == 'd' || *ch == 'D' || *ch == 77) && *choice < 4) (*choice)++;
-    else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
-    else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4)) *choice-=2;
-    else if ((*ch == 'x' || *ch == 'X' || *ch == 80) && (*choice ==1 || *choice ==2)) *choice+=2;
-    else if (*ch == '\r' || *ch == 's' || *ch == 'S') {
+    
+    if (*ch == '\r' || *ch == 's' || *ch == 'S') {
         if (*choice == 1) *ans = 1; // Option A
         else if (*choice == 2) *ans = 2; // Option B
         else if (*choice == 3) *ans = 3; // Option C
@@ -50,20 +49,47 @@ void hard_q(); // Function prototypes for different difficulty levels
 
 int cq1_l1(){ // question 1 for level 1
     pair W_size = get_cnl_wh();
-    int choice =1,stp=0,ans=0;
+    int choice =1,stp=0,ans=0,time_limit=20;                                                                                                                                                                      
     char ch;
-    while(1){
     system("cls");
     dis_score("CODE QUIZ",1/*round */,score,1/*high score index*/,1,3); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-10,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
     set_cnl_pos(0,7);
-    if(stp==0) animation("\033[1;32mWhat is the correct output for x...\n\n",2);
-    else printf("\033[1;32mWhat is the correct output for x...\n\n");
+    animation("\033[1;32mWhat is the correct output for x...\n\n",2);
     // Display the question
     printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
     
     ans_nvg(&ch,&choice,&ans,1/*ans*/,10/*score increment*/,&stp,"5", "6", "7", "8"); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
-    if (ans !=0) break;
     stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            set_cnl_pos(0,W_size.y);
+            ch=_getch();
+    dis_score("CODE QUIZ",1/*round */,score,1/*high score index*/,1,3); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mWhat is the correct output for x...\n\n");
+    // Display the question
+    printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,1/*ans*/,10/*score increment*/,&stp,"5", "6", "7", "8"); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        time_t time_dff=time(NULL)-start; //taking the time different
+        set_cnl_pos(W_size.x-10,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) break;
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,(W_size.y)-6);
+        animation("\033[1;31mTime Up\033[0m",4);
+        break;
+    }
+   
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;32mPress any key to continue...", 2);

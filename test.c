@@ -1,105 +1,96 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <conio.h>  // For _getch() function
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>
+#include "g_color.c"
+#include "h_consol.c"
 
-// Function to ask a question and apply time limit with navigation
-int ask_question(const char *question, const char *op_a, const char *op_b, const char *op_c, const char *op_d, int correct_answer, double time_limit) {
-    time_t start_time, current_time;
-    int choice = 1, ans = 0;
-    char ch;
 
-    printf("%s\n", question); // Display the question
+const char sm_ar[]={'"','%','&'}; // Array to store special characters for the question
+const char *bc = "\n"; // Variable to store the background color
+int score = 0; // Global variable to keep track of the score
 
-    // Display options with navigation
-    printf("Use Arrow keys to navigate and Enter to select.\n");
-
-    time(&start_time);  // Start the timer for this question
-
-    // Loop to wait for user's answer or timeout
-    while (1) {
-        time(&current_time);  // Get current time
-        double elapsed_time = difftime(current_time, start_time);  // Calculate elapsed time
-
-        // If time exceeds the limit, return timeout
-        if (elapsed_time >= time_limit) {
-            printf("\nTime's up! Moving to the next question.\n");
-            return 0;  // Timeout, no answer selected
-        }
-
-        // Clear options and re-display question and options with updated choice
-        system("cls");
-        printf("%s\n", question); // Display the question
-        printf("Use Arrow keys to navigate and Enter to select.\n");
-
-        // Display options with color coding
-        printf("%s A: %s %s\n", choice == 1 ? "->" : "  ", op_a, (choice == 1) ? "<-" : "");
-        printf("%s B: %s %s\n", choice == 2 ? "->" : "  ", op_b, (choice == 2) ? "<-" : "");
-        printf("%s C: %s %s\n", choice == 3 ? "->" : "  ", op_c, (choice == 3) ? "<-" : "");
-        printf("%s D: %s %s\n", choice == 4 ? "->" : "  ", op_d, (choice == 4) ? "<-" : "");
-
-        // Get user input for navigation
-        ch = _getch(); // Get user input
-
-        // Navigate through the choices using arrow keys
-        if (ch == 72 && choice > 1) { // Up Arrow (ASCII 72)
-            choice--;
-        } else if (ch == 80 && choice < 4) { // Down Arrow (ASCII 80)
-            choice++;
-        } else if (ch == '\r' || ch == 's' || ch == 'S') { // Enter or 'S' to select answer
-            ans = choice; // Store the selected answer
-            break; // Exit the loop after selection
+// Function for andswers navigation
+// This function takes the user's input and checks if it matches the correct answer
+void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp,const char *op_a, const char *op_b, const char *op_c, const char *op_d){
+    
+    if (*stp==0) animation("\033[1;32mChoose the correct answer:\n\n\n",3);
+    else printf("\033[1;32mChoose the correct answer:\n\n\n");
+    if ((*ch == 'd' || *ch == 'D' || *ch == 77) && *choice < 4) (*choice)++;
+    else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
+    else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4)) *choice-=2;
+    else if ((*ch == 'x' || *ch == 'X' || *ch == 80) && (*choice ==1 || *choice ==2)) *choice+=2;
+    else if (*ch == '\r' || *ch == 's' || *ch == 'S') {
+        if (*choice == 1) *ans = 1; // Option A
+        else if (*choice == 2) *ans = 2; // Option B
+        else if (*choice == 3) *ans = 3; // Option C
+        else if (*choice == 4) *ans = 4; // Option D
+       
+    }
+        // Display the options with color coding
+        printf("%s A:%s %s\t",*choice==1?"\033[41m":"\033[1;37m",c2(8),op_a);
+        printf("%s B:%s %s\n\n",*choice==2?"\033[41m":"\033[1;37m",c2(8),op_b);
+        printf("%s C:%s %s\t",*choice==3?"\033[41m":"\033[1;37m",c2(8),op_c);
+        printf("%s D:%s %s\n\n",*choice==4?"\033[41m":"\033[1;37m",c2(8),op_d);
+       if((*ch == '\r' || *ch == 's' || *ch == 'S'))
+        {
+            if (*ans == Ans) {
+            score += inc; // Increment score by 10 for correct answer
+            animation("\033[1;32mCorrect!\n", 2);
+        } else {
+            animation("\033[1;31mIncorrect! The correct answer is 5.\n", 2);
+            printf("%s\n", bc);
         }
     }
-
-    // Check if the selected answer is correct
-    if (ans == correct_answer) {
-        printf("\nCorrect answer!\n");
-        return 1; // Correct answer
-    } else {
-        printf("\nIncorrect! The correct answer was %c.\n", 'A' + correct_answer - 1);
-        return 0; // Incorrect answer
-    }
+   
+    
+   
 }
 
-// Main function for the quiz game
-int main() {
-    int score = 0;
-    double time_limit = 30.0; // Set the time limit per question (in seconds)
-
-    // Display welcome message
-    printf("Welcome to the Quiz Game!\n");
-    printf("You have %lf seconds to answer each question.\n\n", time_limit);
-
-    // Question 1
-    score += ask_question(
-        "What is the capital of France?",
-        "London", "Paris", "Berlin", "Madrid",
-        2, // Correct answer is B (Paris)
-        time_limit
-    );
-
-    // Question 2
-    score += ask_question(
-        "What is the square root of 16?",
-        "3", "4", "5", "6",
-        2, // Correct answer is B (4)
-        time_limit
-    );
-
-    // Question 3
-    score += ask_question(
-        "Who wrote 'Hamlet'?",
-        "Shakespeare", "Dickens", "Austen", "Tolkien",
-        1, // Correct answer is A (Shakespeare)
-        time_limit
-    );
-
-    // Final score display
-    printf("\nYour final score: %d\n", score);
-
-    // End of the game
-    printf("\nThanks for playing! Press any key to exit...\n");
-    _getch();  // Wait for user input before closing
+int cq1_l1(){ // question 1 for level 1
+    pair W_size = get_cnl_wh();
+    int choice =1,stp=0,ans=0;
+    char ch;
+    time_t star=time(NULL);
+    system ("cls");
+    while(1){
+        set_cnl_pos(0,0);
+        if(_kbhit() ) {
+            system("cls");
+            
+            ch=_getch();
+        }
+    
+    set_cnl_pos(0,0);
+    if(stp==0) animation("\033[1;32mWhat is the correct output for x...\n\n",2);
+    else printf("\033[1;32mWhat is the correct output for x...\n\n");
+    // Display the question
+     printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,1/*ans*/,10/*score increment*/,&stp,"5", "6", "7", "8"); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+    if(time(NULL)-star>=10) {
+        printf("time is up");
+        break;
+    }
+    if (ans !=0) break;
+    stp++;
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;32mPress any key to continue...", 2);
+    _getch();
     return 0;
+}
+
+
+
+
+
+
+
+ int main (){ // Main function for the code quiz
+    system("cls");
+    int choose = 1, stp = 0;
+    char ch;
+    cq1_l1();
+
+
 }
