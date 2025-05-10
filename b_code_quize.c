@@ -49,7 +49,7 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, 
             score -= 5; // Increment score by 10 for correct answer
             high_score_w(score, 1); // Update high score for code quiz
             dis_score("CODE QUIZ",round,score,high_si,level,life);; // Update score display
-            set_cnl_pos(0,22);
+            set_cnl_pos(0,21);
             printf("%s%s%s",c2(11),hint,c2(0));
         }
         
@@ -106,6 +106,7 @@ int cq1_l1(int *life,int *game_pos){ // question 1 for level 1
         set_cnl_pos(0,22);
         animation("\033[1;31mTime Up\033[0m",4);
        ( *life)--;
+       ans=-1;
         break;
     }
    
@@ -114,7 +115,8 @@ int cq1_l1(int *life,int *game_pos){ // question 1 for level 1
     
     if(ans!=correct_ans){
           set_cnl_pos(0,24);
-            animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
             if(exp=='y'||exp=='Y') {
                 c1(9);
