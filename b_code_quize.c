@@ -63,7 +63,7 @@ void hard_q(); // Function prototypes for different difficulty levels
 
 int cq1_l1(int *life,int *game_pos){ // question 1 for level 1
     pair W_size = get_cnl_wh();
-    int round=1,high_si=1,level=1,choice =1,stp=0,ans=0,correct_ans=1,time_limit=20,hint_pos=0;                                                                                                                                                                      
+    int round=1,high_si=1,level=1,choice =1,stp=0,ans=0,correct_ans=1,time_limit=20,hint_pos=0,complite_quiz=0;                                                                                                                                                                      
     char ch='1';
     system("cls");
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
@@ -112,7 +112,7 @@ int cq1_l1(int *life,int *game_pos){ // question 1 for level 1
    
     }
     dis_score("CODE QUIZ",round,score,high_si,level,*life);
-    
+    if(ans==correct_ans)complite_quiz++;
     if(ans!=correct_ans){
           set_cnl_pos(0,24);
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
@@ -128,10 +128,10 @@ int cq1_l1(int *life,int *game_pos){ // question 1 for level 1
     set_cnl_pos(0,(W_size.y)-4);
     if((*life)!=0&&ans!=correct_ans) animation("\033[1;34mpress for next round...\033[0m",3);
     else if (ans==correct_ans) animation("\033[1;34mPress any key for next round...\033[0m",3);
-    else animation ("\033[1;31mGAME OVER\033[0m\n\nPress any key to continue...",2);
+
     _getch();
     
-    return 0;
+    return complite_quiz;
 }
 
 
@@ -144,17 +144,27 @@ void easy_q(){ // Function for easy quiz
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Easy Quiz...\n",2);
-    int life=3;
+    int life=3,complite_quiz;
     for(int i=0;i<1;i++){
-        level_1[i](&life,&i);
+       complite_quiz = level_1[i](&life);
         if(life==0)break;
     }
      system("cls");
-     set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-1);
-     animation("\033[1;31mGAME COMPLITE",2);
-      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)+2);
-       animation("\033[1;34mPress any key for next...\033[0m",3);
-       _getch();
+    
+    set_cnl_pos((W_size.x/2)-4,0);
+    printf("%sCODECRAFT\n\n",c2(15));
+     set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-4);
+     if(life==0) animation("\033[1;31mGAME OVER 0_0",2);
+     else        animation("\033[1;31mGAME COMPLITE",2);
+     set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-2);
+     printf("%sYour current score: %02d%s",c2(15),score,c2(0));
+     set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-1);
+     printf("%sYour High score: %02d%s",c2(15),high_score_r(1),c2(0));
+     set_cnl_pos((W_size.x/2)-12,(W_size.y/2));
+     printf("%sYour Complite Quiz: %02d%s",c2(15),complite_quiz,c2(0));
+     set_cnl_pos((W_size.x/2)-12,(W_size.y/2)+2);
+     animation("\033[1;34mPress any key for next...\033[0m",3);
+     _getch();
 
    score = 0;
 }
