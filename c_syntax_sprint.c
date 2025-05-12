@@ -45,7 +45,7 @@ void check_ans(int round,int high_si,int level,int time_limit,int *life,int *com
               ( *life)--;
               dis_score("SYNTAX S-PRINT",round,score_s,high_si,level,*life);
               set_cnl_pos(0,data_pos);
-              animation("\033[1;32mIncorrect!", 2);
+              animation("\033[1;31mIncorrect!", 2);
 
         }
         break;
