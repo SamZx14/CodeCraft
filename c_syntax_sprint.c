@@ -5,6 +5,7 @@
 int score_s=0;
 
 void check_ans(int round,int high_si,int level,int time_limit,int *life,int *complite_syntax,int ans_pos_x,int ans_pos_y,int data_pos,const char *ans,const char *explanation){ // Function to check the answer
+    data_pos+=2;
     pair W_size = get_cnl_wh();
     c1(11);
     animation("\n\nType your answer here to complete the code and level up!",3); // Prompt the user to type their answer
@@ -85,24 +86,17 @@ int ss_l1(int *life){
     animation("\033[1;33mFill the blanks with the correct syntax...\n\n",3);
     printf("%sint %smain%s () {\n%s___%s i = %s0%s; %s// what is should be placed here ?\n%swhile%s (i < %s10%s) {\n%sprintf (%s%c%cd%c,%s i);\ni++;\n}\n%sreturn %s0%s;\n}",c2(13),c2(10),c2(16),c2(13),c2(16),c2(2),c2(8),c2(6),c2(13),c2(16),c2(2),c2(16),c2(12),c2(11),sm_ar[0],sm_ar[1],sm_ar[0],c2(16),c2(13),c2(2),c2(16));
    
-   check_ans(round,high_si,level,time_limit,life,&complite_syntax,0,10,22,ans,"\033[0;33mThe blank should be filled with \033[1;34mint\033[0;33m because \033[1;37mi\033[0;33m is an integer variable, and \033[1;34\033[0;33mint is used to declare integer types in \033[1;35mC."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
+   check_ans(round,high_si,level,time_limit,life,&complite_syntax,0,10,20,ans,"\033[0;33mThe blank should be filled with \033[1;34mint\033[0;33m because \033[1;37mi\033[0;33m is an integer variable, and \033[1;34\033[0;33mint is used to declare integer types in \033[1;35mC."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
     return complite_syntax;
 }
 
-int(*level_1s[])() = {ss_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
-int(*level_2s[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
-int(*level_3s[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
+int(*level_seasy[])() = {ss_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int(*level_smedium[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
+int(*level_shard[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
 
-void easy_s(){ // Function for easy syntax
+void score_board_s(int complite_syntax, int life){ // Function to display the score board
 pair W_size = get_cnl_wh();
-set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
-animation("\033[1;32mStarting Easy Syntax...\n",2);
-int life=3,complite_syntax;
-for(int i=0;i<1;i++){
-   complite_syntax= level_1s[i](&life);
-   if(life==0)break;
-}
-system("cls");
+    system("cls");
     
     set_cnl_pos((W_size.x/2)-4,0);
     printf("%sCODECRAFT\n\n",c2(15));
@@ -120,18 +114,43 @@ system("cls");
      _getch();
 score_s=0;
 }
+void easy_s(){ // Function for easy syntax
+pair W_size = get_cnl_wh();
+set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
+animation("\033[1;32mStarting Easy Syntax...\n",2);
+int life=3,complite_syntax;
+for(int i=0;i<1;i++){
+   complite_syntax= level_seasy[i](&life);
+   if(life==0)break;
+}
+score_board_s(complite_syntax,life); // Call the score board function
+}
 
 void medium_s(){ // Function for medium syntax
 pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Medium Syntax...\n",2);
+int life=3,complite_syntax;
+for(int i=0;i<1;i++){
+   complite_syntax= level_smedium[i](&life);
+   if(life==0)break;
+}
+score_board_s(complite_syntax,life); // Call the score board function
 }
 
 void hard_s(){ // Function for hard syntax
 pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Hard Syntax...\n",2);
+int life=3,complite_syntax;
+for(int i=0;i<1;i++){
+   complite_syntax= level_shard[i](&life);
+   if(life==0)break;
 }
+score_board_s(complite_syntax,life); // Call the score board function
+}
+
+
 void  syntax_sprint() { // Main function for the syntax sprint
     system("cls");
     int choose=1,stp=0;
