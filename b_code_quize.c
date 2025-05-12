@@ -81,6 +81,7 @@ int cq1_l1(int *life){ // question 1 for level 1
     time_t start = time(NULL); //times count start
     while(1){
          W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             // set_cnl_pos(0,W_size.y);
@@ -94,7 +95,7 @@ int cq1_l1(int *life){ // question 1 for level 1
     
     ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,"5", "6", "7", "8","++a & a++ are not same. Post-Increment: The value of x is used before it's incremented.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
         }
-        time_t time_dff=time(NULL)-start; //taking the time different
+        
         set_cnl_pos(W_size.x-11,5);
     printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
        
