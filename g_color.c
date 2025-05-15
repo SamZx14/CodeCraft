@@ -4,7 +4,8 @@
 #include <time.h>    // For struct timespec and nanosleep
 #include <conio.h>   // For _getch() (optional)
 
-void animation (const char *title,double time_set){
+
+void animation (const char *title,double time_set){ // Function to animate the text
     struct timespec dily;
     dily.tv_sec =0;
     dily.tv_nsec =100000000/time_set;
@@ -18,6 +19,7 @@ void animation (const char *title,double time_set){
     }
 }
 
+// Function to set the console text color (Windows)
 void c1(int color){
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
