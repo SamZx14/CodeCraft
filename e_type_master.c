@@ -51,9 +51,9 @@ void easy_t() { // Function for easy type master
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Easy Type Master...\n", 2);
-    int life = 3, complite_type;
+    int life = 3, complite_type=0;
     for (int i = 0; i < 1; i++) {
-        complite_type = level_teasy[i](&life);
+        complite_type += level_teasy[i](&life);
         if (life == 0) break;
     }
     score_board_t(complite_type, life); // Call the score board function
@@ -63,9 +63,9 @@ void medium_t() { // Function for medium type master
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Medium Type Master...\n", 2);
-    int life = 3, complite_type;
+    int life = 3, complite_type=0;
     for (int i = 0; i < 1; i++) {
-        complite_type = level_tmedium[i](&life);
+        complite_type += level_tmedium[i](&life);
         if (life == 0) break;
     }
     score_board_t(complite_type, life); // Call the score board function
@@ -75,9 +75,9 @@ void hard_t() { // Function for hard type master
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Hard Type Master...\n", 2);
-    int life = 3, complite_type;
+    int life = 3, complite_type=0;
     for (int i = 0; i < 1; i++) {
-        complite_type = level_thard[i](&life);
+        complite_type += level_thard[i](&life);
         if (life == 0) break;
     }
     score_board_t(complite_type, life); // Call the score board function

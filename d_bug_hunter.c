@@ -48,9 +48,9 @@ void easy_b() { // Function for easy bug hunting
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Easy Bug Hunter...\n", 2);
-    int life = 3, complite_bug;
+    int life = 3, complite_bug=0;
     for (int i = 0; i < 1; i++) {
-        complite_bug = level_beasy[i](&life);
+        complite_bug += level_beasy[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function
@@ -60,9 +60,9 @@ void medium_b() { // Function for medium bug hunting
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Medium Bug Hunter...\n", 2);
-    int life = 3, complite_bug;
+    int life = 3, complite_bug=0;
     for (int i = 0; i < 1; i++) {
-        complite_bug = level_bmedium[i](&life);
+        complite_bug += level_bmedium[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function
@@ -72,9 +72,9 @@ void hard_b() { // Function for hard bug hunting
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Hard Bug Hunter...\n", 2);
-    int life = 3, complite_bug;
+    int life = 3, complite_bug=0;
     for (int i = 0; i < 1; i++) {
-        complite_bug = level_bhard[i](&life);
+        complite_bug += level_bhard[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function

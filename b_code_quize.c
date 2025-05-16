@@ -11,9 +11,9 @@ int score = 0; // Global variable to keep track of the score
 // This function takes the user's input and checks if it matches the correct answer
 void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, int high_si, int level, int life,int data_pos, const char *op_a, const char *op_b, const char *op_c, const char *op_d, const char *hint,int *hint_pos){
   
-    data_pos+=7;
-    if (*stp==0) animation("\033[1;32mChoose the correct answer:\n\n\n",3);
-    else printf("\033[1;32mChoose the correct answer:\n\n\n");
+    data_pos+=6;
+    if (*stp==0) animation("\033[1;32mChoose the correct answer:\n\n",3);
+    else printf("\033[1;32mChoose the correct answer:\n\n");
     if ((*ch == 'd' || *ch == 'D' || *ch == 77) && *choice < 5) (*choice)++;
     else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
     else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4 || *choice == 5)) *choice-=2;
@@ -40,17 +40,16 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, 
         if (*ans == Ans) {
             score += inc; // Increment score by 10 for correct answer
             high_score_w(score, 1); // Update high score for code quiz
-             set_cnl_pos(0,data_pos+2);
+            set_cnl_pos(0,data_pos+1);
             animation("\033[1;32mCorrect!", 2);
-            dis_score("CODE QUIZ",round,score,high_si,level,life); // Update score display
+           
         }
         else if (*choice == 5&&*hint_pos==0) {
             (*hint_pos)++;
-            score -= 5; // Increment score by 10 for correct answer
+            score -= 5; // Increment score by 5 for incorrect answer
             high_score_w(score, 1); // Update high score for code quiz
-            dis_score("CODE QUIZ",round,score,high_si,level,life);; // Update score display
             set_cnl_pos(0,data_pos);
-            printf("%s%s%s",c2(11),hint,c2(0));
+            printf("%s%s",c2(11),hint);
         }
         
     }
@@ -68,7 +67,7 @@ int cq1_l1(int *life){ // question 1 for level 1
     system("cls");
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     
-    set_cnl_pos(W_size.x-11,5);
+    set_cnl_pos(W_size.x-12,5);
     printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
     
     set_cnl_pos(0,7);
@@ -95,7 +94,7 @@ int cq1_l1(int *life){ // question 1 for level 1
     ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"5", "6", "7", "8","++a & a++ are not same. Post-Increment: The value of x is used before it's incremented.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
         }
         
-        set_cnl_pos(W_size.x-11,5);
+        set_cnl_pos(W_size.x-12,5);
     printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
        
     if (ans !=0) {
@@ -103,18 +102,18 @@ int cq1_l1(int *life){ // question 1 for level 1
         break;
     }
     if(time_dff>=time_limit) { // condition for timeout
-        set_cnl_pos(0,22); //13+9
+        set_cnl_pos(0,20); //13+7
         animation("\033[1;31mTime Up\033[0m",4);
        ( *life)--;
        ans=-1;
         break;
     }
-   
     }
-    dis_score("CODE QUIZ",round,score,high_si,level,*life);
-    if(ans==correct_ans)complite_quiz++;
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
     if(ans!=correct_ans){
-          set_cnl_pos(0,24); //13+9+2
+          set_cnl_pos(0,22); //13+7+2
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
@@ -125,7 +124,7 @@ int cq1_l1(int *life){ // question 1 for level 1
 
         
     }
-    set_cnl_pos(0,(W_size.y)-4);
+    set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
 
@@ -135,7 +134,7 @@ int cq1_l1(int *life){ // question 1 for level 1
 }
 
 
-int (*level_qeasy[])() = {cq1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int (*level_qeasy[])() = {cq1_l1,cq1_l1,cq1_l1,cq1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
 int (*level_qmedium[])() = { /* level 2 functions */ }; // Array of function pointers for level 2 questions
 int (*level_qhard[])() = { /* level 3 functions */ }; // Array of function pointers for level 3 questions
 
@@ -166,9 +165,9 @@ void easy_q(){ // Function for easy quiz
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Easy Quiz...\n",2);
-    int life=3,complite_quiz;
-    for(int i=0;i<1;i++){
-       complite_quiz = level_qeasy[i](&life);
+    int life=3,complite_quiz=0;
+    for(int i=0;i<4;i++){
+       complite_quiz += level_qeasy[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
@@ -178,9 +177,9 @@ void medium_q(){ // Function for medium quiz
      pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Medium Quiz...\n",2);
-    int life=3,complite_quiz;
+    int life=3,complite_quiz=0;
     for(int i=0;i<1;i++){
-       complite_quiz = level_qmedium[i](&life);
+       complite_quiz += level_qmedium[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
@@ -190,9 +189,9 @@ void hard_q(){ // Function for hard quiz
     pair W_size = get_cnl_wh();
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Hard Quiz...\n",2);
-    int life=3,complite_quiz;
+    int life=3,complite_quiz=0;
     for(int i=0;i<1;i++){
-       complite_quiz = level_qhard[i](&life);
+       complite_quiz += level_qhard[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
