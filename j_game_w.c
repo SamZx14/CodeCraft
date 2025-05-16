@@ -122,11 +122,11 @@ void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int life
     printf("%sLevel: %02d%s",c2(15),lev,c2(0));
     set_cnl_pos(0,4);
     printf("%sRound: %02d",c2(15),rnd);
-    set_cnl_pos(W_size.x-10,4);
+    set_cnl_pos(W_size.x-11,4);
     printf("%sLife: %02d%s",c2(15),life,c2(0));
     set_cnl_pos(0,W_size.y-1);
     printf("%sHigh Score: %02d%s",c2(15), high_score_r(h_score),c2(0));
-    set_cnl_pos(W_size.x-18,W_size.y-1);
+    set_cnl_pos(W_size.x-20,W_size.y-1);
     printf("%sCurrent Score: %02d %s",c2(15),c_score,c2(0));
     set_cnl_pos((W_size.x/2)-6,(W_size.y)-1);
     printf("%sUser: %s%s",c2(15),us,c2(0));

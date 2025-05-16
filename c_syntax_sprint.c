@@ -14,13 +14,13 @@ void check_ans(int round,int high_si,int level,int time_limit,int *life,int *com
     while(1){
      
       time_diff =time(NULL)-start; // Calculate the time difference
-       set_cnl_pos(W_size.x-11,5);
+       set_cnl_pos(W_size.x-12,5);
        printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
        if(_kbhit()){ // Check if a key is pressed
         set_cnl_pos(ans_pos_x,ans_pos_y);
         c1(3);
         scanf("%s",&in_ans);
-         set_cnl_pos(W_size.x-11,5);
+         set_cnl_pos(W_size.x-12,5);
          time_diff =time(NULL)-start;
          printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
 
@@ -90,7 +90,7 @@ int ss1_l1(int *life){
     return complite_syntax;
 }
 
-int(*level_seasy[])() = {ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int(*level_seasy[])() = {ss1_l1,ss1_l1,ss1_l1,ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
 int(*level_smedium[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
 int(*level_shard[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
 
@@ -118,9 +118,9 @@ void easy_s(){ // Function for easy syntax
 pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Easy Syntax...\n",2);
-int life=3,complite_syntax;
-for(int i=0;i<1;i++){
-   complite_syntax= level_seasy[i](&life);
+int life=3,complite_syntax=0;
+for(int i=0;i<4;i++){
+   complite_syntax+= level_seasy[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
@@ -130,9 +130,9 @@ void medium_s(){ // Function for medium syntax
 pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Medium Syntax...\n",2);
-int life=3,complite_syntax;
+int life=3,complite_syntax=0;
 for(int i=0;i<1;i++){
-   complite_syntax= level_smedium[i](&life);
+   complite_syntax+= level_smedium[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
@@ -142,9 +142,9 @@ void hard_s(){ // Function for hard syntax
 pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Hard Syntax...\n",2);
-int life=3,complite_syntax;
+int life=3,complite_syntax=0;
 for(int i=0;i<1;i++){
-   complite_syntax= level_shard[i](&life);
+  complite_syntax+= level_shard[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
