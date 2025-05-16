@@ -134,7 +134,7 @@ int cq1_l1(int *life){ // question 1 for level 1
 }
 
 
-int (*level_qeasy[])() = {cq1_l1,cq1_l1,cq1_l1,cq1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int (*level_qeasy[])() = {cq1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
 int (*level_qmedium[])() = { /* level 2 functions */ }; // Array of function pointers for level 2 questions
 int (*level_qhard[])() = { /* level 3 functions */ }; // Array of function pointers for level 3 questions
 
@@ -148,7 +148,7 @@ void score_board_b(int complite_quiz, int life){ // Function to display the scor
      if(life==0) animation("\033[1;31mGAME OVER 0_0",2);
      else        animation("\033[1;31mGAME COMPLETE",2);
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-2);
-     printf("%sYour current score: %02d%s",c2(15),score,c2(0));S
+     printf("%sYour current score: %02d%s",c2(15),score,c2(0));
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-1);
      printf("%sYour High score: %02d%s",c2(15),high_score_r(1),c2(0));
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2));
@@ -166,7 +166,7 @@ void easy_q(){ // Function for easy quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Easy Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<4;i++){
+    for(int i=0;i<1;i++){
        complite_quiz += level_qeasy[i](&life);
         if(life==0)break;
     }
