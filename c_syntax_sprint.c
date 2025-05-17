@@ -90,7 +90,7 @@ int ss1_l1(int *life){
     return complite_syntax;
 }
 
-int(*level_seasy[])() = {ss1_l1,ss1_l1,ss1_l1,ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int(*level_seasy[])() = {ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
 int(*level_smedium[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
 int(*level_shard[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
 
