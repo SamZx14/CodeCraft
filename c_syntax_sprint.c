@@ -90,7 +90,7 @@ int ss1_l1(int *life){
     return complite_syntax;
 }
 
-int(*level_seasy[])() = {ss1_l1,ss1_l1,ss1_l1,ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int(*level_seasy[])() = {ss1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
 int(*level_smedium[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
 int(*level_shard[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
 
@@ -102,13 +102,13 @@ pair W_size = get_cnl_wh();
     printf("%sCODECRAFT\n\n",c2(15));
      set_cnl_pos((W_size.x/2)-7,(W_size.y/2)-4);
      if(life==0) animation("\033[1;31mGAME OVER 0_0",2);
-     else        animation("\033[1;31mGAME COMPLITE",2);
+     else        animation("\033[1;31mGAME COMPLETE",2);
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-2);
      printf("%sYour current score: %02d%s",c2(15),score_s,c2(0));
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)-1);
      printf("%sYour High score: %02d%s",c2(15),high_score_r(2),c2(0));
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2));
-     printf("%sYour Complite Syntax: %02d%s",c2(15),complite_syntax,c2(0));
+     printf("%sYour Complete Syntax: %02d%s",c2(15),complite_syntax,c2(0));
      set_cnl_pos((W_size.x/2)-12,(W_size.y/2)+2);
      animation("\033[1;34mPress any key for next...\033[0m",3);
      _getch();
