@@ -62,6 +62,9 @@ void easy_q(); // Function prototypes for different difficulty levels
 void medium_q(); // Function prototypes for different difficulty levels 
 void hard_q(); // Function prototypes for different difficulty levels
 
+
+//start code samira....
+//start code for easy level question set
 int cq1_l1(int *life){ // question 1 for level 1
     pair W_size = get_cnl_wh();
     int round=1,high_si=1,level=1,choice =1,stp=0,ans=0,correct_ans=2,time_limit=10,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
@@ -210,7 +213,7 @@ int cq2_l1(int *life){ // question 2 for level 1
 
 int cq3_l1(int *life){ // question 3 for level 1
     pair W_size = get_cnl_wh();
-    int round=3,high_si=1,level=1,choice =1,stp=0,ans=0,correct_ans=1,time_limit=10,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    int round=3,high_si=1,level=1,choice =1,stp=0,ans=0,correct_ans=1,time_limit=15,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
     char ch='1';
     system("cls");
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
@@ -283,84 +286,7 @@ int cq3_l1(int *life){ // question 3 for level 1
 
 int cq4_l2(int *life){ // question 1 for level 2
     pair W_size = get_cnl_wh();
-    int round=4,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=1,time_limit=20,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
-    char ch='1';
-    system("cls");
-    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
-    
-    set_cnl_pos(W_size.x-12,5);
-    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
-    
-    set_cnl_pos(0,7);
-    animation("\033[1;32mWhat is the correct output for x...\n\n",2);
-    // Display the question
-    printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
-    
-    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"5", "6", "7", "8","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
-    stp++;
-    time_t start = time(NULL); //times count start
-    while(1){
-         W_size = get_cnl_wh();
-         time_t time_dff=time(NULL)-start; //taking the time different
-        if(_kbhit()){ //condition for only input er allowed to change the display data
-            system("cls");
-            ch=_getch();
-    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
-    set_cnl_pos(0,7);
-   
-    printf("\033[1;32mWhat is the correct output for x...\n\n");
-    // Display the question
-    printf("%sint %sx %s= 5\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
-    
-    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"5", "6", "7", "8","++a & a++ are not same. Post-Increment: The value of x is used before it's incremented.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
-        }
-        
-        set_cnl_pos(W_size.x-12,5);
-    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
-       
-    if (ans !=0) {
-       if(ans!=correct_ans)( *life)--;
-        break;
-    }
-    if(time_dff>=time_limit) { // condition for timeout
-        set_cnl_pos(0,20); //13+7
-        animation("\033[1;31mTime Up\033[0m",4);
-       ( *life)--;
-       ans=-1;
-        break;
-    }
-    }
-    set_cnl_pos(W_size.x-11,4);
-    printf("%sLife: %02d%s",c2(15),*life,c2(0));
-    set_cnl_pos(0,W_size.y-1);
-    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
-    set_cnl_pos(W_size.x-20,W_size.y-1);
-    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
-    if(ans==correct_ans)complite_quiz=1;
-    if(ans!=correct_ans){
-          set_cnl_pos(0,22); //13+7+2
-          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
-            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
-            char exp=_getch();
-            if(exp=='y'||exp=='Y') {
-                c1(9);
-                animation("In the printf function, the x (which is 5) is printed first, then incremented.\nSo, it prints 5 and x becomes 6 after that.",4);
-            }
-
-        
-    }
-    set_cnl_pos(0,(W_size.y)-2);
-    animation("\033[1;34mPress for next round...\033[0m",3);
-   
-
-    _getch();
-    
-    return complite_quiz;
-}
-
-int cq5_l2(int *life){ // question 1 for level 2
-    pair W_size = get_cnl_wh();
-    int round=5,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=4,time_limit=15,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    int round=4,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=4,time_limit=15,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
     char ch='1';
     system("cls");
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
@@ -371,9 +297,9 @@ int cq5_l2(int *life){ // question 1 for level 2
     set_cnl_pos(0,7);
     animation("\033[1;32mWhat is the output of the variable y ?\n\n",2);
     // Display the question
-    printf("%sint %sx %s= 5; \n%sint %sy %s= x++ %s/ %sx; \n%sprintf%s(%s%c%cd%c,y%s);\n\n",c2(13),c2(15),c2(8),c2(13),c2(15),c2(8),c2(6),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
+    printf("%sint %sx %s= 9;\n%sint %sy %s= x %s/ %s81;\n%sprintf%s(%s%c%cd%c,y%s);\n\n",c2(13),c2(15),c2(8),c2(13),c2(15),c2(8),c2(14),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
     
-    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,14/*data pos*/,"5", "Error", "1", "0","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,14/*data pos*/,"0.111", "error", "9", "0","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
     stp++;
     time_t start = time(NULL); //times count start
     while(1){
@@ -387,9 +313,9 @@ int cq5_l2(int *life){ // question 1 for level 2
    
     printf("\033[1;32mWhat is the output of the variable y ?\n\n");
     // Display the question
-    printf("%sint %sx %s= 5; \n%sint %sy %s= x++ %s/ %sx; \n%sprintf%s(%s%c%cd%c,y%s);\n\n",c2(13),c2(15),c2(8),c2(13),c2(15),c2(8),c2(6),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));    
+    printf("%sint %sx %s= 9;\n%sint %sy %s= x %s/ %s81;\n%sprintf%s(%s%c%cd%c,y%s);\n\n",c2(13),c2(15),c2(8),c2(13),c2(15),c2(8),c2(14),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
     
-    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,14/*data pos*/,"5", "Error", "1", "0","Pay close attention to the post-increment operator x++ and how it behaves in the expression",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,14/*data pos*/,"0.111", "error", "9", "0","This will perform integer division.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
         }
         
         set_cnl_pos(W_size.x-12,5);
@@ -421,7 +347,7 @@ int cq5_l2(int *life){ // question 1 for level 2
             char exp=_getch();
             if(exp=='y'||exp=='Y') {
                 c1(9);
-                animation("When any number is  divided by a larger number, the result is a fraction less than 1, often approaching zero.\nIf such a fractional value (for example, 0.9, 0.8, or 0.7) is stored in an integer (int) datatype, it will be\ntruncated to zero because integer types store only whole numbers and discard the decimal part.",4);
+                animation("Here both the nembers are integer type thats why the result will store only the\nineteger part",4);
             }
 
         
@@ -435,9 +361,316 @@ int cq5_l2(int *life){ // question 1 for level 2
     return complite_quiz;
 }
 
+int cq5_l2(int *life){ // question 2 for level 2
+    pair W_size = get_cnl_wh();
+    int round=5,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=3,time_limit=10,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    char ch='1';
+    system("cls");
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
+    set_cnl_pos(0,7);
+    animation("\033[1;32mWhich one is not an operator type ?\n\n",2);
+    // Display the question    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,10/*data pos*/,"bitwise", "conditional", "functional", "assignment","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+         W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            ch=_getch();
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mWhich one is not an operator type ?\n\n");
+    // Display the question    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,10/*data pos*/,"bitwise", "conditional", "functional", "assignment","Three of these are common operators in C; the fourth is more about how functions behave.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        
+        set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) {
+       if(ans!=correct_ans)( *life)--;
+        break;
+    }
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,17); //data pos+7
+        animation("\033[1;31mTime Up\033[0m",4);
+       ( *life)--;
+       ans=-1;
+        break;
+    }
+    }
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
+    set_cnl_pos(W_size.x-20,W_size.y-1);
+    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
+    if(ans!=correct_ans){
+          set_cnl_pos(0,19); //data pos+7+2
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+            char exp=_getch();
+            if(exp=='y'||exp=='Y') {
+                c1(9);
+                animation("There is no operator like functional operator in C.",4);
+            }
 
-int (*level_qeasy[])() = {cq1_l1,cq2_l1,cq3_l1,cq4_l2,cq5_l2 /* other levels can be added here */}; // Array of function pointers for level 1 questions
-int (*level_qmedium[])() = { /* level 2 functions */ }; // Array of function pointers for level 2 questions
+        
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+   
+
+    _getch();
+    
+    return complite_quiz;
+}
+
+int cq6_l2(int *life){ // question 3 for level 2
+    pair W_size = get_cnl_wh();
+    int round=6,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=2,time_limit=10,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    char ch='1';
+    system("cls");
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
+    set_cnl_pos(0,7);
+    animation("\033[1;32mDefine the type of output here --\n\n",2);
+    // Display the question
+    printf("%sint %s+ %soparetor %s+ %sfloat %s= ?;\n\n",c2(13),c2(14),c2(13),c2(14),c2(13),c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,12/*data pos*/,"int", "float", "double", "error","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+         W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            ch=_getch();
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mDefine the type of output here --\n\n");
+    // Display the question
+    printf("%sint %s+ %soparetor %s+ %sfloat %s= ?;\n\n",c2(13),c2(14),c2(13),c2(14),c2(13),c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,12/*data pos*/,"int", "float", "double", "error","When an integer interacts with a floating-point value, the result is promoted to the broader type.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        
+        set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) {
+       if(ans!=correct_ans)( *life)--;
+        break;
+    }
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,19); //data pos+7
+        animation("\033[1;31mTime Up\033[0m",4);
+       ( *life)--;
+       ans=-1;
+        break;
+    }
+    }
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
+    set_cnl_pos(W_size.x-20,W_size.y-1);
+    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
+    if(ans!=correct_ans){
+          set_cnl_pos(0,21); //data pos+7+2
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+            char exp=_getch();
+            if(exp=='y'||exp=='Y') {
+                c1(9);
+                animation("In C, when different data types are used in the same expression, C convert the \nsmaller type to the bigger type before doing the calculation. This is \ncalled type promotion",4);
+            }
+
+        
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+   
+
+    _getch();
+    
+    return complite_quiz;
+}
+
+int cq7_l3(int *life){ // question 1 for level 3
+    pair W_size = get_cnl_wh();
+    int round=7,high_si=1,level=3,choice =1,stp=0,ans=0,correct_ans=4,time_limit=20,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    char ch='1';
+    system("cls");
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
+    set_cnl_pos(0,7);
+    animation("\033[1;32mWhat is the output will be ?\n\n",2);
+    // Display the question
+    printf("%sint %sm %s= 10, %sn %s= 9, %so %s= 8, %sp %s= 7, %sq %s= 6;\n%sprintf%s(%s%c%cd%c, m %s* %sn %s/ %so %s+ %sp %s- %sq %s);\n\n",c2(13),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(12),c2(6),c2(12),c2(6),c2(12),c2(6),c2(12),c2(6),c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"11.25", "10", "12.25", "12","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+         W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            ch=_getch();
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mWhat is the output will be ?\n\n");
+    // Display the question
+    printf("%sint %sm %s= 10, %sn %s= 9, %so %s= 8, %sp %s= 7, %sq %s= 6;\n%sprintf%s(%s%c%cd%c, m %s* %sn %s/ %so %s+ %sp %s- %sq %s);\n\n",c2(13),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(12),c2(6),c2(12),c2(6),c2(12),c2(6),c2(12),c2(6),c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"11.25", "10", "12.25", "12","Follow operator precedence step by step.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        
+        set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) {
+       if(ans!=correct_ans)( *life)--;
+        break;
+    }
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,20); //data pos+7
+        animation("\033[1;31mTime Up\033[0m",4);
+       ( *life)--;
+       ans=-1;
+        break;
+    }
+    }
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
+    set_cnl_pos(W_size.x-20,W_size.y-1);
+    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
+    if(ans!=correct_ans){
+          set_cnl_pos(0,22); //data pos+7+2
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+            char exp=_getch();
+            if(exp=='y'||exp=='Y') {
+                c1(9);
+                animation("Arithmetic operator follows the precedence rule.",4);
+            }
+
+        
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+   
+
+    _getch();
+    
+    return complite_quiz;
+}
+
+//end code samira....
+
+//for midium level question set
+int cq11_l1(int *life){ // question 11 for level 1
+    pair W_size = get_cnl_wh();
+    int round=2,high_si=1,level=2,choice =1,stp=0,ans=0,correct_ans=1,time_limit=20,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    char ch='1';
+    system("cls");
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
+    set_cnl_pos(0,7);
+    animation("\033[1;32mWhat is the correct output for x...\n\n",2);
+    // Display the question
+    printf("%sint %sx %s= 5;\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"5", "6", "7", "8","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+         W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            ch=_getch();
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mWhat is the correct output for x...\n\n");
+    // Display the question
+    printf("%sint %sx %s= 5;\n%sprintf%s(%s%c%cd%c,x++%s);\n\n",c2(13),c2(15),c2(8),c2(7),c2(8),c2(6),sm_ar[0],sm_ar[1],sm_ar[0],c2(8));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,13/*data pos*/,"5", "6", "7", "8","++a & a++ are not same. Post-Increment: The value of x is used before it's incremented.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        
+        set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) {
+       if(ans!=correct_ans)( *life)--;
+        break;
+    }
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,20); //data pos+7
+        animation("\033[1;31mTime Up\033[0m",4);
+       ( *life)--;
+       ans=-1;
+        break;
+    }
+    }
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
+    set_cnl_pos(W_size.x-20,W_size.y-1);
+    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
+    if(ans!=correct_ans){
+          set_cnl_pos(0,22); //data pos+7+2
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+            char exp=_getch();
+            if(exp=='y'||exp=='Y') {
+                c1(9);
+                animation("In the printf function, the x (which is 5) is printed first, then incremented.\nSo, it prints 5 and x becomes 6 after that.",4);
+            }
+
+        
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+   
+
+    _getch();
+    
+    return complite_quiz;
+}
+//end code for midium level question set
+
+int (*level_qeasy[])() = {cq1_l1,cq2_l1,cq3_l1,cq4_l2,cq5_l2,cq6_l2,cq7_l3 /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int (*level_qmedium[])() = {cq11_l1, /* level 2 functions */ }; // Array of function pointers for level 2 questions
 int (*level_qhard[])() = { /* level 3 functions */ }; // Array of function pointers for level 3 questions
 
 
@@ -468,7 +701,7 @@ void easy_q(){ // Function for easy quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Easy Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<5;i++){
+    for(int i=0;i<7;i++){
        complite_quiz += level_qeasy[i](&life);
         if(life==0)break;
     }
