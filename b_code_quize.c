@@ -233,7 +233,7 @@ int cq3_l1(int *life){ // question 3 for level 1
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
-    printf("\033[1;32m% [Modulo] works on _?_\n\n");
+    printf("\033[1;32m%c [Modulo] works on _?_\n\n",sm_ar[1]);
     // Display the question    
     ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,10/*data pos*/,"int", "double", "float", "all the above ","Handles only discrete numeric values.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
         }
@@ -421,7 +421,7 @@ int cq5_l2(int *life){ // question 1 for level 2
             char exp=_getch();
             if(exp=='y'||exp=='Y') {
                 c1(9);
-                animation("When any number is divided by a larger number, the result is a fraction less than 1,\noften approaching zero. If such a fractional value (for example, 0.9, 0.8, or 0.7) is stored in an integer (int) datatype,\nit will be truncated to zero because integer types store only whole numbers and discard the decimal part.",4);
+                animation("When any number is  divided by a larger number, the result is a fraction less than 1, often approaching zero.\nIf such a fractional value (for example, 0.9, 0.8, or 0.7) is stored in an integer (int) datatype, it will be\ntruncated to zero because integer types store only whole numbers and discard the decimal part.",4);
             }
 
         
