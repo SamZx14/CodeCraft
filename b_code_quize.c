@@ -1349,7 +1349,7 @@ int cq17_l2(int *life){ // question 3 for level 2 for midium level
     return complite_quiz;
 }
 
-int cq18_l2(int *life){ // question 1 for level 3 for midium level
+int cq18_l3(int *life){ // question 1 for level 3 for midium level
     pair W_size = get_cnl_wh();
     int round=8,high_si=1,level=3,choice =1,stp=0,ans=0,correct_ans=4,time_limit=20,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
     char ch='1';
@@ -1426,10 +1426,87 @@ int cq18_l2(int *life){ // question 1 for level 3 for midium level
     return complite_quiz;
 }
 
+int cq19_l3(int *life){ // question 2 for level 3 for midium level
+    pair W_size = get_cnl_wh();
+    int round=9,high_si=1,level=3,choice =1,stp=0,ans=0,correct_ans=3,time_limit=20,hint_pos=0,complite_quiz=0; //high_si == high score index                                                                                                                                                               
+    char ch='1';
+    system("cls");
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    
+    set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit,c2(0)); //initial time display
+    
+    set_cnl_pos(0,7);
+    animation("\033[1;32mWhat will be the output?\n\n",2);
+    // Display the question
+    printf("%sint %sx = %s3%s;\n%sswitch%s(x){\n%scase %s3%s:\n%sprintf%s(%s%c%cHELLO%c%s);\n%scase %s2%s:\n%sprintf%s(%s%c%cCODE-CRAFTER%c%s);\n%scase %s1%s:\n%sprintf%s(%s%c%c:)%c%s);\n%sbreak%s;\n%sdefault%s:\n%sprintf%s(%s%c%cBEST OF LUCK%c%s);\n}\n\n",c2(14),c2(16),c2(14),c2(16),c2(13),c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(16),c2(13),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,23/*data pos*/,"HELLO", "BEST OF LUCK", "HELLO CODE-CRAFTER :)", "HELLO CODE-CRAFTER :) BEST OF LUCK","",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is round, 7th is high sore index, 8th is level, 9th is life, 10th is option b, 11th is option c, 12th is option d, 13th is hint
+    stp++;
+    time_t start = time(NULL); //times count start
+    while(1){
+         W_size = get_cnl_wh();
+         time_t time_dff=time(NULL)-start; //taking the time different
+        if(_kbhit()){ //condition for only input er allowed to change the display data
+            system("cls");
+            ch=_getch();
+    dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
+    set_cnl_pos(0,7);
+   
+    printf("\033[1;32mWhat will be the output?\n\n");
+    // Display the question
+    printf("%sint %sx = %s3%s;\n%sswitch%s(x){\n%scase %s3%s:\n%sprintf%s(%s%c%cHELLO%c%s);\n%scase %s2%s:\n%sprintf%s(%s%c%cCODE-CRAFTER%c%s);\n%scase %s1%s:\n%sprintf%s(%s%c%c:)%c%s);\n%sbreak%s;\n%sdefault%s:\n%sprintf%s(%s%c%cBEST OF LUCK%c%s);\n}\n\n",c2(14),c2(16),c2(14),c2(16),c2(13),c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(14),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16),c2(13),c2(16),c2(13),c2(16),c2(12),c2(16),c2(11),sm_ar[0],sm_ar[0],c2(16));
+    
+    ans_nvg(&ch,&choice,&ans,correct_ans,10/*score increment*/,&stp,round,high_si,level,*life,23/*data pos*/,"HELLO", "BEST OF LUCK", "HELLO CODE-CRAFTER :)", "HELLO CODE-CRAFTER :) BEST OF LUCK","After the matching case, execution falls through to subsequent cases until a break.",&hint_pos); //here 1st is choice, 2nd is ans, 3rd is correct ans, 4th is stp, 5th is option a, 6th is option b, 7th is option c, 8th is option d
+        }
+        
+        set_cnl_pos(W_size.x-12,5);
+    printf("%s Time: %02ds%s",c2(15),time_limit-time_dff,c2(0)); // the timer
+       
+    if (ans !=0) {
+       if(ans!=correct_ans)( *life)--;
+        break;
+    }
+    if(time_dff>=time_limit) { // condition for timeout
+        set_cnl_pos(0,30); //data pos+7
+        animation("\033[1;31mTime Up\033[0m",4);
+       ( *life)--;
+       ans=-1;
+        break;
+    }
+    }
+    set_cnl_pos(W_size.x-11,4);
+    printf("%sLife: %02d%s",c2(15),*life,c2(0));
+    set_cnl_pos(0,W_size.y-1);
+    printf("%sHigh Score: %02d%s",c2(15),high_score_r(high_si),c2(0));
+    set_cnl_pos(W_size.x-20,W_size.y-1);
+    printf("%sCurrent Score: %02d %s",c2(15),score,c2(0));
+    if(ans==correct_ans)complite_quiz=1;
+    if(ans!=correct_ans){
+          set_cnl_pos(0,32); //data pos+7+2
+          if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
+            else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
+            char exp=_getch();
+            if(exp=='y'||exp=='Y') {
+                c1(9);
+                animation("In this switch case after matching case 3, it does not stop. It keeps running\nthe next cases. after matching one case, without break, all next\ncases also run.",4);
+            }
+
+        
+    }
+    set_cnl_pos(0,(W_size.y)-2);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+   
+
+    _getch();
+    
+    return complite_quiz;
+}
+
 //end code for midium level question set
 
 int (*level_qeasy[])() = {cq1_l1,cq2_l1,cq3_l1,cq4_l2,cq5_l2,cq6_l2,cq7_l3,cq8_l3,cq9_l3,cq10_l3 /* other levels can be added here */}; // Array of function pointers for level 1 questions
-int (*level_qmedium[])() = {cq11_l1,cq12_l1,cq13_l1,cq14_l1,cq15_l2,cq16_l2,cq17_l2,cq18_l2 /* level 2 functions */ }; // Array of function pointers for level 2 questions
+int (*level_qmedium[])() = {cq11_l1,cq12_l1,cq13_l1,cq14_l1,cq15_l2,cq16_l2,cq17_l2,cq18_l3,cq19_l3 /* level 2 functions */ }; // Array of function pointers for level 2 questions
 int (*level_qhard[])() = { /* level 3 functions */ }; // Array of function pointers for level 3 questions
 
 
@@ -1472,7 +1549,7 @@ void medium_q(){ // Function for medium quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Medium Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<8;i++){
+    for(int i=0;i<9;i++){
        complite_quiz += level_qmedium[i](&life);
         if(life==0)break;
     }
