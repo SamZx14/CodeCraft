@@ -4,18 +4,115 @@
 #include<string.h>
 
 int score_b = 0;
-void check_bug(){
-
+void check_bug(int round,int high_si,int level,int time_limit,int *life,int *complite_syntax,int data_pos,int line,const char *ans,const char *explanation ){
+ data_pos+=2;
+    pair W_size = get_cnl_wh();
+    c1(11);
+    animation("\n\nEnter the line number where you found the problem: ",3); // Prompt the user to type their answer
+    time_t start = time(NULL),time_diff; // Start the timer
+    int in_line; // Variable to store the user's input
+    char in_ans[200]; // Variable to store the user's input
+    while(1){
+     
+      time_diff =time(NULL)-start; // Calculate the time difference
+       set_cnl_pos(W_size.x-12,5);
+       printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
+       if(_kbhit()){ // Check if a key is pressed
+         c1(10);
+         set_cnl_pos(52,data_pos-1);
+         scanf("%d",&in_line); // Read the line number from the user
+         set_cnl_pos(W_size.x-12,5);
+         time_diff =time(NULL)-start;
+         printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
+         
+         if(time_diff>=time_limit){ // Check if the time limit is exceeded
+               ( *life)--;
+               dis_score("BUG HUNTER",round,score_b,high_si,level,*life);
+               set_cnl_pos(0,data_pos);
+                animation("\033[1;31mTime Up\033[0m",4);
+      
+        }
+        else if(in_line!=line){ // Check if the user's answer is correct
+              (*life)--; // Decrement the line number if the answer is incorrect
+              dis_score("BUG HUNTER",round,score_b,high_si,level,*life); // Display the score
+              set_cnl_pos(0,data_pos);
+              animation("\033[1;31mIncorrect line Number!", 2); 
+        }
+        else { // If the answer is incorrect
+             set_cnl_pos(0,data_pos+1);
+             c1(11);
+             animation("Input the corrected code line exactly as you would write it.", 3);
+             c1(8);
+             animation("\n[make sure to include spaces and formatting as shown in the question].", 2);
+             data_pos+=3;
+              set_cnl_pos(0,data_pos);
+                c1(10);
+              fgets(in_ans, sizeof(in_ans), stdin); // Read the corrected code line from the user
+              set_cnl_pos(W_size.x-12,5);
+              time_diff =time(NULL)-start;
+              printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
+                in_ans[strcspn(in_ans, "\n")] = 0; // Remove the newline character from the input
+                 if(time_diff>=time_limit){ // Check if the time limit is exceeded
+                ( *life)--;
+                dis_score("BUG HUNTER",round,score_b,high_si,level,*life);
+                set_cnl_pos(0,data_pos+2);
+                animation("\033[1;31mTime Up\033[0m",4);
+      
+            }
+                else if(strcmp(in_ans, ans) == 0) {
+                score_b += 10; // Increment score by 10 for correct answer
+                (*complite_syntax)++; // Increment the completed syntax count
+                high_score_w(score_b,high_si);
+                dis_score("BUG HUNTER",round,score_b,high_si,level,*life); // Display the score
+                set_cnl_pos(0,data_pos+2);
+                animation("\033[1;32mCorrect!", 2);
+                }
+                else {
+                    (*life)--; // Decrement life if the answer is incorrect
+                    dis_score("BUG HUNTER",round,score_b,high_si,level,*life); // Display the score
+                    set_cnl_pos(0,data_pos+2);
+                    animation("\033[1;31mIncorrect!", 2);
+                }
+                data_pos+=2;
+        }
+        break;
+      }
+      if(time_diff>=time_limit){ // Check if the time limit is exceeded
+               ( *life)--;
+               dis_score("SYNTAX S-PRINT",round,score_b,high_si,level,*life);
+               set_cnl_pos(0,data_pos);
+            animation("\033[1;31mTime Up\033[0m",4);
+            break;
+        }
+     
+    }
+      
+     c1(10);
+      set_cnl_pos(0,data_pos+2);
+    if(strcmp(ans,in_ans)!=0){ // If the answer is incorrect
+        animation("For the explanation press Y, else press N\n",3);
+    char ex_ch=_getch();
+    if(ex_ch=='y'||ex_ch=='Y') { // If the user wants to see the explanation
+        c1(15);
+        animation(explanation,4);
+    }
+    }
+    set_cnl_pos(0,(W_size.y)-4);
+    animation("\033[1;34mPress for next round...\033[0m",3);
+    _getch();
+    
 }
 
+
 int bh1_l1(int *life) {
-    int round = 1, high_si = 3, level = 1, time_limit = 20, complite_bug =0;
+    int round = 1, high_si = 3, level = 1, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
     dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
     set_cnl_pos(0, 7);
-    animation("\033[1;32mFind the bug in the code, fix it!\n", 3);
-
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  %s#%sinclude%s<stdio.h>\n%s2  %sint %smain%s () {\n%s3  %sint %sx = %s5%s;\n%s4  %sif %s(x = %s10%s) {\n%s5%s  printf%s(%s%cx is 10\\n%c%s);\n%s6%s  }\n%s7  %sreturn %s0%s;\n%s8  %s}",c2(8), c2(16), c2(13), c2(11), c2(8), c2(14), c2(10), c2(16), c2(8), c2(14), c2(16), c2(10), c2(16), c2(8), c2(13), c2(16), c2(10), c2(16), c2(8), c2(12), c2(16), c2(11),sm_ar[0],sm_ar[0],c2(16), c2(8), c2(16), c2(8),c2(13), c2(10),c2(16),c2(8),c2(16));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 17 /*data pos*/, 4/*line*/, "if (x == 10) {", "The condition should use '==' for comparison, not '=' for assignment.");
     return complite_bug;
 }
 

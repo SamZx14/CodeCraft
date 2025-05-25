@@ -119,7 +119,7 @@ pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Easy Syntax...\n",2);
 int life=3,complite_syntax=0;
-for(int i=0;i<4;i++){
+for(int i=0;i<1;i++){
    complite_syntax+= level_seasy[i](&life);
    if(life==0)break;
 }
