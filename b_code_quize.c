@@ -28,7 +28,7 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, 
         printf("%s D:%s %s\n\n",*choice==4?"\033[41m":"\033[1;37m",c2(8),op_d);
         printf("%s E:%s Hint",*choice==5?"\033[41m":"\033[1;37m",c2(7));
         c1(8);
-        printf(" (If you take a hit, your lose 5 point and you just take once for a round.)");
+        printf(" (If you take a hint, your lose 5 point and you just take once for a round.)");
         c1(7);
       
     // Check for valid input and update the choice accordingly
