@@ -115,10 +115,80 @@ int bh1_l1(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 17 /*data pos*/, 4/*line*/, "if (x == 10) {", "The condition should use '==' for comparison, not '=' for assignment.");
     return complite_bug;
 }
+int bh2_l2(int *life) {
+    int round = 1, high_si = 3, level = 2, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  %sint %smain%s () {\n3  %schar %sage = %s25%s;\n4  %sprintf %s(%s\"Age: %%c\\n\"%s,age); \n5%s  return %s0%s;\n6  }",c2(16),c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(14), c2(16), c2(12), c2(16), c2(11), c2(16),c2(13),c2(14),c2(16));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 15 /*data pos*/, 3/*line*/, "char age = '25';", "25 should stored in single quotation for character type data.");
+    return complite_bug;
+}
+int bh3_l3(int *life) {
+    int round = 1, high_si = 3, level = 3, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  %sint %smain%s () {\n3  %sint %snumber;\n4  %sprintf %s(%s\"Enter a number: \"%s); \n5%s  scanf%s(%s\"%%d\"%s, number);\n6  %sprintf%s(%s\"You entered: %%d\\n\"%s, number);\n7  %sreturn %s0%s; \n8  }",c2(16),c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(12), c2(16), c2(11), c2(16), c2(12), c2(16),c2(11),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(14),c2(16));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 17 /*data pos*/, 5/*line*/, "scanf(\"%%d\", &number);", "Missing & before number in scanf.");
+    return complite_bug;
+}
+int bh4_l1(int *life) {
+    int round = 1, high_si = 3, level = 1, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  %sint %smain%s() {\n3  %sint %sx = %s10%s;\n4  %sif %s(x > %s10%s)\n5  %sprintf%s(%s\"x is greater than or equal to 10\\n\"%s);\n6  %selse if %s(x > %s5%s)\n7  %sprintf%s(%s\"x is greater than 5\\n\"%s);\n8  %sreturn %s0%s;\n9  } ",
+        c2(16),c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(14), c2(16), c2(13), c2(16), c2(14), c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(16),c2(14),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(14),c2(16));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 18 /*data pos*/, 4/*line*/, "if (x >= 10)", "The condition x > 10 is incorrect for the message. It should be x >= 10.");
+    return complite_bug;
+}
+int bh5_l2(int *life) {
+    int round = 1, high_si = 3, level = 2, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  %sint %smultiply%s (%sint %sa, %sint %sb) {\n3  %sreturn%s a + b;\n4  }\n5  %sint %smain%s() {\n6  %sint %sresult = multiply(%s3%s,%s 4%s);\n7  %sprintf%s(%s\"Result: %%d\\n\"%s, result); \n8%s  return %s0%s;\n9  }\n10  %sOutput: 12", 
+        c2(16),c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(14), c2(16), c2(13), c2(16), c2(14), c2(10),c2(16),c2(14),c2(16),c2(14),c2(16),c2(14),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(14),c2(16),c2(15));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 19 /*data pos*/, 3/*line*/, "return a * b;", "Should return a * b, not a + b.");
+    return complite_bug;
+}
+int bh6_l3(int *life) {
+    int round = 1, high_si = 3, level = 3, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  %svoid %supdate%s(%sint %s*x) {\n3  *x = *x + %s1%s;\n4  }\n5  %sint %smain%s() {\n6  %sint %sa = %s5%s;\n7  update(a);\n8  %sprintf%s(%s\"%%d\\n\"%s, a);\n9  %sreturn %s0%s;\n10  }\n11  %sOutput: 6", 
+        c2(16),c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(14), c2(16), c2(14), c2(10), c2(16), c2(14),c2(16),c2(14),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(14),c2(16),c2(15));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 20 /*data pos*/, 7/*line*/, "update(&a);", "Passed a instead of &a, pointer not receiving address.");
+    return complite_bug;
+}
+int bh7_l1(int *life) {
+    int round = 1, high_si = 3, level = 1, time_limit = 30, complite_bug =0;
+    char ans[30]="";
+    system("cls");
+    dis_score("BUG HUNTER", round, score_b, high_si, level, *life);
+    set_cnl_pos(0, 7);
+    animation("\033[1;32mFind the bug in the code, fix it!\n\n", 3);
+    printf("%s1  #%sinclude%s<stdio.h>\n%s2  #%sinclude %s<string.h>\n%s3  %sint %smain%s() { \n4  %schar %sstr[%s10%s];\n5  %sprintf%s(%s\"Enter a string: \"%s);\n6  %sscanf%s(%s\"%%9s\"%s, str);\n7  %sif %s(%sstrlen%s(str) = %s5%s)\n8  %sprintf%s(%s\"String length is 5\\n\"%s);\n9  %selse \n%s10  %sprintf%s(%s\"String length is not 5\\n\"%s);\n11  %sreturn %s0%s;\n12  }", 
+        c2(16),c2(13), c2(11), c2(16), c2(13), c2(11), c2(16), c2(14), c2(10), c2(16), c2(14), c2(16), c2(14), c2(16), c2(12),c2(16),c2(11),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(16),c2(12),c2(16),c2(14),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(16),c2(12),c2(16),c2(11),c2(16),c2(13),c2(14),c2(16));
+    check_bug(round, high_si, level, time_limit, life, &complite_bug, 21 /*data pos*/, 7/*line*/, "if (strlen(str) == 5)", "The condition uses assignment (=) instead of equality check (==), so it always sets strlen(str) to 5 (which is invalid), causing unexpected behavior.");
+    return complite_bug;
+}
 
-int (*level_beasy[])() = {bh1_l1, /* other levels can be added here */}; // Array of function pointers for level 1 questions
-int (*level_bmedium[])() = {/* level 2 functions */}; // Array of function pointers for level 2 questions
-int (*level_bhard[])() = {/* level 3 functions */}; // Array of function pointers for level 3 questions
+int (*level_beasy[])() = {bh1_l1,bh2_l2,bh3_l3 /*other levels can be added here */}; // Array of function pointers for level 1 questions
+int (*level_bmedium[])() = {bh4_l1,bh5_l2,bh6_l3/*level 2 functions */}; // Array of function pointers for level 2 questions
+int (*level_bhard[])() = {bh7_l1/*level 3 functions */}; // Array of function pointers for level 3 questions
 
 void score_board_bug(int complite_bug, int life) { // Function to display the score board
     system("cls");
@@ -146,7 +216,7 @@ void easy_b() { // Function for easy bug hunting
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Easy Bug Hunter...\n", 2);
     int life = 3, complite_bug=0;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         complite_bug += level_beasy[i](&life);
         if (life == 0) break;
     }
@@ -158,7 +228,7 @@ void medium_b() { // Function for medium bug hunting
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Medium Bug Hunter...\n", 2);
     int life = 3, complite_bug=0;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         complite_bug += level_bmedium[i](&life);
         if (life == 0) break;
     }
