@@ -102,7 +102,12 @@ void check_ans_type(int round, int high_si,int level,int time_limit,int *life,in
     }
     set_cnl_pos((W_size.x / 2) - 11, W_size.y  -2);
      animation("\033[1;34mPress any key for next...\033[0m", 3);
-    _getch();
+     char chr = _getch(); // Wait for user input
+    if (chr == '@') { // If the user wants to go back
+        back_t = 0; // Set back_t to 0 to indicate going back
+        *life = 0; // Set life to 0 to end the game
+        return; // Exit the function
+    }
     
 }
 

@@ -100,15 +100,26 @@ void check_bug(int round,int high_si,int level,int time_limit,int *life,int *com
     if(strcmp(ans,in_ans)!=0){ // If the answer is incorrect
         animation("For the explanation press Y, else press N\n",3);
     char ex_ch=_getch();
+    if(ex_ch=='@'){
+        back_b=0; // If the user wants to go back, set back_b to 0
+        *life = 0; // Set life to 0 to end the game
+        return; // Exit the function
+    }
     if(ex_ch=='y'||ex_ch=='Y') { // If the user wants to see the explanation
         c1(15);
         animation(explanation,4);
     }
     }
+    char chr;
     set_cnl_pos(0,(W_size.y)-4);
     animation("\033[1;34mPress for next round...\033[0m",3);
-    _getch();
-    
+    chr=_getch();
+
+    if(chr=='@'){
+        back_b=0; // If the user wants to go back, set back_s to 0
+        *life = 0; // Set life to 0 to end the game
+        return; // Exit the function
+    }
 }
 
 
