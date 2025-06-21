@@ -7,7 +7,7 @@ double avg_speed=0.0,
        avg_wrong=0.0,
        avg_accuracy=0.0;
 int score_t=0;
-
+int back_t=1; // Global variables to store score and back status
 void check_ans_type(int round, int high_si,int level,int time_limit,int *life,int *comlite_type,int line,char *ans[]){  // Function to check the answer
    
     // Implement the logic to check the answer for Type Master game
@@ -30,6 +30,11 @@ void check_ans_type(int round, int high_si,int level,int time_limit,int *life,in
                  set_cnl_pos(0, 10+line+(line-line1));
                  c1(15-(line-line1));
                  fgets(input, sizeof(input), stdin); // Read the input from the user
+                 if(strcmp(input, "@\n") == 0) { // If the user wants to go back
+                        back_t = 0; // If the user wants to go back, set back_t to 0
+                     *life = 0; // Set life to 0 to end the game
+                     return; // Exit the function
+                 }
                  total_in_char+=strlen(input);
                  time_diff = time(NULL) - start; // Calculate the time difference
                  set_cnl_pos(W_size.x-12,5);

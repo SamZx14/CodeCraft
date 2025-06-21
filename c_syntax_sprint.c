@@ -3,6 +3,7 @@
 #include<time.h>
 #include<string.h>
 int score_s=0;
+int back_s=1; // Global variables to store score and back status
 
 void check_ans(int round,int high_si,int level,int time_limit,int *life,int *complite_syntax,int ans_pos_x,int ans_pos_y,int data_pos,const char *ans,const char *explanation){ // Function to check the answer
     data_pos+=3;
@@ -11,6 +12,7 @@ void check_ans(int round,int high_si,int level,int time_limit,int *life,int *com
     animation("\n\nType your answer here to complete the code and level up!",3); // Prompt the user to type their answer
     time_t start = time(NULL),time_diff; // Start the timer
      char in_ans[10]; // Variable to store the user's input
+  
     while(1){
      
       time_diff =time(NULL)-start; // Calculate the time difference
@@ -20,6 +22,24 @@ void check_ans(int round,int high_si,int level,int time_limit,int *life,int *com
         set_cnl_pos(ans_pos_x,ans_pos_y);
         c1(3);
         scanf("%s",&in_ans);
+        if(strcmp(in_ans,"@") == 0) {
+            back_s=0; // If the user wants to go back, set back_s to 0
+            *life = 0; // Set life to 0 to end the game
+            return; // Exit the function
+        }
+         set_cnl_pos(ans_pos_x,ans_pos_y);
+         c1(10);
+         in_ans[strcspn(in_ans, "\n")] = 0; // Remove the newline character from the input
+         set_cnl_pos(W_size.x-12,5);
+         time_diff =time(NULL)-start;
+         printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
+         
+         if(time_diff>=time_limit){ // Check if the time limit is exceeded
+               ( *life)--;
+               dis_score("SYNTAX S-PRINT",round,score_s,high_si,level,*life);
+               set_cnl_pos(0,data_pos);
+                animation("\033[1;31mTime Up\033[0m",4);
+        }
          set_cnl_pos(W_size.x-12,5);
          time_diff =time(NULL)-start;
          printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
@@ -119,7 +139,7 @@ int ss3_l1(int *life){//question 3 for easy level 1
     return complite_syntax;
 }
 
-int ss4_l1(int *life){//question 1 for easy level 2
+int ss4_l2(int *life){//question 1 for easy level 2
     pair W_size = get_cnl_wh();
     int round=4,level=2,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="%";
@@ -133,7 +153,11 @@ int ss4_l1(int *life){//question 1 for easy level 2
     return complite_syntax;
 }
 
-int ss5_l2(int *life){//question 1 for easy level 3
+int ss5_l2(int *life){
+
+}
+
+int ss6_l3(int *life){//question 1 for easy level 3
     pair W_size = get_cnl_wh();
     int round=5,level=3,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="printf";
@@ -146,9 +170,13 @@ int ss5_l2(int *life){//question 1 for easy level 3
    check_ans(round,high_si,level,time_limit,life,&complite_syntax,0/*blank x pos*/,11/*blank y pos*/,17/*data pos*/,ans,"\033[0;33mThe blank should be filled with \033[1;34mprintf\033[0;33m because it is the right keyword to print the output in  \033[1;35mC."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
     return complite_syntax;
 }
+
+int ss7_l3(int *life){
+
+}
 //for medium level
 
-int ss11_l1(int *life){//question 1 for medium level 1
+int ss8_l1(int *life){//question 1 for medium level 1
     pair W_size = get_cnl_wh();
     int round=1,level=1,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="for";
@@ -161,8 +189,11 @@ int ss11_l1(int *life){//question 1 for medium level 1
    check_ans(round,high_si,level,time_limit,life,&complite_syntax,0/*blank x pos*/,10/*blank y pos*/,16/*data pos*/,ans,"\033[0;33mThe blank should be filled with \033[1;34mfor\033[0;33m because it is the right keyword to input a condition in \033[1;35mC."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
     return complite_syntax;
 }
+int ss9_l1(int *life){
 
-int ss12_l2(int *life){//question 1 for medium level 2
+}
+
+int ss10_l2(int *life){//question 1 for medium level 2
     pair W_size = get_cnl_wh();
     int round=1,level=2,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="a+b";
@@ -176,7 +207,11 @@ int ss12_l2(int *life){//question 1 for medium level 2
     return complite_syntax;
 }
 
-int ss13_l3(int *life){//question 1 for medium level 3
+int ss11_l2(int *life){
+
+}
+
+int ss12_l3(int *life){//question 1 for medium level 3
     pair W_size = get_cnl_wh();
     int round=1,level=3,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="!=";
@@ -189,9 +224,13 @@ int ss13_l3(int *life){//question 1 for medium level 3
    check_ans(round,high_si,level,time_limit,life,&complite_syntax,5/*blank x pos*/,13/*blank y pos*/,20/*data pos*/,ans,"\033[0;33mThe blank should be filled with \033[1;34m!=\033[0;33m for the condition in print function."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
     return complite_syntax;
 }
+
+int ss13_l3(int *life){
+
+}
 //for hard level
 
-int ss21_l1(int *life){//question 1 for medium level 1
+int ss14_l1(int *life){//question 1 for medium level 1
     pair W_size = get_cnl_wh();
     int round=1,level=1,high_si=2,time_limit=15,complite_syntax=0;
     const char *ans="1,2,3,4,5";
@@ -204,10 +243,30 @@ int ss21_l1(int *life){//question 1 for medium level 1
    check_ans(round,high_si,level,time_limit,life,&complite_syntax,17/*blank x pos*/,11/*blank y pos*/,16/*data pos*/,ans,"\033[0;33mThe blank should be filled with \033[1;34m'1,2,3,4,5'\033[0;33m because the first 5 numbers are 1,2,3,4,5."); // Check the answer, here 1st is round, 2nd is high score, 3rd is level, 4th is time limit, 5th is life, 6th is complite_syntax, 7th is ans_pos, 8th is data_pos, 9th is ans, 10th is explanation
     return complite_syntax;
 }
+
+int ss15_l1(int *life){
+
+}
+
+int ss16_l2(int *life){
+
+}
+
+int ss17_l2(int *life){
+
+}
+
+int ss18_l3(int *life){
+
+}
+
+int ss19_l3(int *life){
+
+}
 //end code samira
-int(*level_seasy[])() = {ss1_l1,ss2_l1,ss3_l1,ss4_l1,ss5_l2 /* other levels can be added here */}; // Array of function pointers for level 1 questions
-int(*level_smedium[])() = {ss11_l1,ss12_l2,ss13_l3/* level 2 functions */}; // Array of function pointers for level 2 questions
-int(*level_shard[])() = {ss21_l1/* level 3 functions */}; // Array of function pointers for level 3 questions
+int(*level_seasy[])() = {ss1_l1,ss2_l1,ss3_l1,ss4_l2,ss6_l3 /* other levels can be added here */}; // Array of function pointers for level 1 questions
+int(*level_smedium[])() = {ss8_l1,ss10_l2,ss12_l3/* level 2 functions */}; // Array of function pointers for level 2 questions
+int(*level_shard[])() = {ss14_l1/* level 3 functions */}; // Array of function pointers for level 3 questions
 
 void score_board_s(int complite_syntax, int life){ // Function to display the score board
 pair W_size = get_cnl_wh();
@@ -234,11 +293,12 @@ pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Easy Syntax...\n",2);
 int life=3,complite_syntax=0;
-for(int i=0;i<5;i++){
+for(int i=0;i<5&& back_s;i++){
    complite_syntax+= level_seasy[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
+back_s=1; // Reset back_s to 1 for the next game
 }
 
 void medium_s(){ // Function for medium syntax
@@ -246,11 +306,12 @@ pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Medium Syntax...\n",2);
 int life=3,complite_syntax=0;
-for(int i=0;i<3;i++){
+for(int i=0;i<3&& back_s;i++){
    complite_syntax+= level_smedium[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
+back_s=1; // Reset back_s to 1 for the next game
 }
 
 void hard_s(){ // Function for hard syntax
@@ -258,11 +319,12 @@ pair W_size = get_cnl_wh();
 set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
 animation("\033[1;32mStarting Hard Syntax...\n",2);
 int life=3,complite_syntax=0;
-for(int i=0;i<1;i++){
+for(int i=0;i<1&& back_s;i++){
   complite_syntax+= level_shard[i](&life);
    if(life==0)break;
 }
 score_board_s(complite_syntax,life); // Call the score board function
+back_s=1; // Reset back_s to 1 for the next game
 }
 
 

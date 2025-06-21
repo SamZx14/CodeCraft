@@ -3,10 +3,12 @@
 #include<time.h>
 #include<string.h>
 
+void code_quiz(); // Function prototype for the code quiz
+
 const char sm_ar[]={'"','%','&',}; // Array to store special characters for the question
 
 int score = 0; // Global variable to keep track of the score
-
+int back = 1;
 // Function for andswers navigation
 // This function takes the user's input and checks if it matches the correct answer
 void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, int high_si, int level, int life,int data_pos, const char *op_a, const char *op_b, const char *op_c, const char *op_d, const char *hint,int *hint_pos){
@@ -18,6 +20,10 @@ void ans_nvg(char *ch,int *choice,int *ans,int Ans,int inc,int *stp, int round, 
     else if ((*ch == 'a' || *ch == 'A' || *ch == 75) && *choice > 1) (*choice)--;
     else if ((*ch == 'w' || *ch == 'W' || *ch == 72) && (*choice ==3 || *choice ==4 || *choice == 5)) *choice-=2;
     else if ((*ch == 'x' || *ch == 'X' || *ch == 80) && (*choice ==1 || *choice ==2 || *choice == 3)) *choice+=2;
+    if (*ch == '@') {
+        back = 0; // Set back to false if '@' is pressed
+        return; // Exit the function
+    }
     int tab_size=(strlen(op_a)>=strlen(op_c))?strlen(op_a):strlen(op_c);
         // Display the options with color coding
         printf("%s A:%s %s",*choice==1?"\033[41m":"\033[1;37m",c2(8),op_a);
@@ -87,6 +93,11 @@ int cq1_l1(int *life){ // question 1 for level 1 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -160,6 +171,11 @@ int cq2_l1(int *life){ // question 2 for level 1 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -233,6 +249,11 @@ int cq3_l1(int *life){ // question 3 for level 1 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -308,6 +329,11 @@ int cq4_l2(int *life){ // question 1 for level 2 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -383,6 +409,11 @@ int cq5_l2(int *life){ // question 2 for level 2 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -458,6 +489,11 @@ int cq6_l2(int *life){ // question 3 for level 2 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -535,6 +571,11 @@ int cq7_l3(int *life){ // question 1 for level 3 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -612,6 +653,11 @@ int cq8_l3(int *life){ // question 2 for level 3 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -689,6 +735,11 @@ int cq9_l3(int *life){ // question 3 for level 3 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -764,6 +815,11 @@ int cq10_l3(int *life){ // question 4 for level 3 for easy level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -840,6 +896,11 @@ int cq11_l1(int *life){ // question 1 for level 1 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -915,6 +976,11 @@ int cq12_l1(int *life){ // question 2 for level 1 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -992,6 +1058,11 @@ int cq13_l1(int *life){ // question 3 for level 1 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1069,6 +1140,11 @@ int cq14_l1(int *life){ // question 4 for level 1 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1144,6 +1220,11 @@ int cq15_l2(int *life){ // question 1 for level 2 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1219,6 +1300,11 @@ int cq16_l2(int *life){ // question 2 for level 2 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1296,6 +1382,11 @@ int cq17_l2(int *life){ // question 3 for level 2 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1373,6 +1464,11 @@ int cq18_l3(int *life){ // question 1 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1450,6 +1546,11 @@ int cq19_l3(int *life){ // question 2 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1527,6 +1628,11 @@ int cq20_l3(int *life){ // question 3 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1607,6 +1713,11 @@ int cq21_l1(int *life){ // question 1 for level 1 for hard level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1680,6 +1791,11 @@ int cq22_l1(int *life){ // question 2 for level 1 for hard level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1753,6 +1869,11 @@ int cq23_l1(int *life){ // question 3 for level 1 for hard level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1828,6 +1949,11 @@ int cq24_l2(int *life){ // question 1 for level 2 for hard level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1903,6 +2029,11 @@ int cq25_l2(int *life){ // question 2 for level 2 for hard level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -1978,6 +2109,11 @@ int cq26_l2(int *life){ // question 3 for level 2 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -2053,6 +2189,11 @@ int cq27_l3(int *life){ // question 1 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -2128,6 +2269,11 @@ int cq28_l3(int *life){ // question 2 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -2205,6 +2351,11 @@ int cq29_l3(int *life){ // question 3 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -2282,6 +2433,11 @@ int cq30_l3(int *life){ // question 4 for level 3 for midium level
         if(_kbhit()){ //condition for only input er allowed to change the display data
             system("cls");
             ch=_getch();
+            if(ch=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
     dis_score("CODE QUIZ",round,score,high_si,level,*life); // pass the game name, round number, current score, high score index, level, and life
     set_cnl_pos(0,7);
    
@@ -2370,11 +2526,12 @@ void easy_q(){ // Function for easy quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Easy Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<10 && back;i++){
        complite_quiz += level_qeasy[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
+    back = 1; // Reset back flag after quiz completion
 }
 
 void medium_q(){ // Function for medium quiz
@@ -2382,11 +2539,12 @@ void medium_q(){ // Function for medium quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Medium Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<10 && back;i++){
        complite_quiz += level_qmedium[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
+    back = 1; // Reset back flag after quiz completion
 }
 
 void hard_q(){ // Function for hard quiz
@@ -2394,11 +2552,12 @@ void hard_q(){ // Function for hard quiz
     set_cnl_pos((W_size.x/2)-10,(W_size.y/2)+4);
     animation("\033[1;32mStarting Hard Quiz...\n",2);
     int life=3,complite_quiz=0;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<10 && back;i++){
        complite_quiz += level_qhard[i](&life);
         if(life==0)break;
     }
     score_board_b(complite_quiz, life); // Call the score board function
+    back = 1; // Reset back flag after quiz completion
 }
 
 
