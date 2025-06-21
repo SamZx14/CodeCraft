@@ -4,13 +4,15 @@
 #include<string.h>
 
 int score_b = 0;
+int back_b = 1;
 void check_bug(int round,int high_si,int level,int time_limit,int *life,int *complite_syntax,int data_pos,int line,const char *ans,const char *explanation ){
  data_pos+=2;
     pair W_size = get_cnl_wh();
     c1(11);
     animation("\n\nEnter the line number where you found the problem: ",3); // Prompt the user to type their answer
     time_t start = time(NULL),time_diff; // Start the timer
-    int in_line; // Variable to store the user's input
+    char in_line1; // Variable to store the user's input
+    int in_line;
     char in_ans[200]; // Variable to store the user's input
     while(1){
      
@@ -20,7 +22,13 @@ void check_bug(int round,int high_si,int level,int time_limit,int *life,int *com
        if(_kbhit()){ // Check if a key is pressed
          c1(10);
          set_cnl_pos(52,data_pos-1);
-         scanf("%d",&in_line); // Read the line number from the user
+         scanf("%c",&in_line1); // Read the line number from the user
+            if(in_line1=='@') { // If the user wants to go back
+                back_b=0; // If the user wants to go back, set back_b to 0
+                *life = 0; // Set life to 0 to end the game
+                return; // Exit the function
+            }
+            in_line = in_line1 - '0'; // Convert the character to an integer
          set_cnl_pos(W_size.x-12,5);
          time_diff =time(NULL)-start;
          printf("%s Time: %02ds%s",c2(15),time_limit-time_diff,c2(0)); // the timer
@@ -115,7 +123,12 @@ int bh1_l1(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 17 /*data pos*/, 4/*line*/, "if (x == 10) {", "The condition should use '==' for comparison, not '=' for assignment.");
     return complite_bug;
 }
-int bh2_l2(int *life) {
+
+int bh2_l1(int *life){
+
+}
+
+int bh3_l2(int *life) {
     int round = 1, high_si = 3, level = 2, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -126,7 +139,12 @@ int bh2_l2(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 15 /*data pos*/, 3/*line*/, "char age = '25';", "25 should stored in single quotation for character type data.");
     return complite_bug;
 }
-int bh3_l3(int *life) {
+
+int bh4_l2(int *life){
+
+}
+
+int bh5_l3(int *life) {
     int round = 1, high_si = 3, level = 3, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -137,7 +155,13 @@ int bh3_l3(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 17 /*data pos*/, 5/*line*/, "scanf(\"%%d\", &number);", "Missing & before number in scanf.");
     return complite_bug;
 }
-int bh4_l1(int *life) {
+
+int bh6_l3(int *life){
+
+}
+
+//medium level
+int bh7_l1(int *life) {
     int round = 1, high_si = 3, level = 1, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -149,7 +173,12 @@ int bh4_l1(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 18 /*data pos*/, 4/*line*/, "if (x >= 10)", "The condition x > 10 is incorrect for the message. It should be x >= 10.");
     return complite_bug;
 }
-int bh5_l2(int *life) {
+
+int bh8_l1(int *life){
+
+}
+
+int bh9_l2(int *life) {
     int round = 1, high_si = 3, level = 2, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -161,7 +190,12 @@ int bh5_l2(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 19 /*data pos*/, 3/*line*/, "return a * b;", "Should return a * b, not a + b.");
     return complite_bug;
 }
-int bh6_l3(int *life) {
+
+int bh10_l2(int *life){
+
+}
+
+int bh11_l3(int *life) {
     int round = 1, high_si = 3, level = 3, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -173,7 +207,12 @@ int bh6_l3(int *life) {
     check_bug(round, high_si, level, time_limit, life, &complite_bug, 20 /*data pos*/, 7/*line*/, "update(&a);", "Passed a instead of &a, pointer not receiving address.");
     return complite_bug;
 }
-int bh7_l1(int *life) {
+
+int bh12_l3(int *life){
+
+}
+
+int bh13_l1(int *life) {
     int round = 1, high_si = 3, level = 1, time_limit = 30, complite_bug =0;
     char ans[30]="";
     system("cls");
@@ -186,9 +225,31 @@ int bh7_l1(int *life) {
     return complite_bug;
 }
 
-int (*level_beasy[])() = {bh1_l1,bh2_l2,bh3_l3 /*other levels can be added here */}; // Array of function pointers for level 1 questions
-int (*level_bmedium[])() = {bh4_l1,bh5_l2,bh6_l3/*level 2 functions */}; // Array of function pointers for level 2 questions
-int (*level_bhard[])() = {bh7_l1/*level 3 functions */}; // Array of function pointers for level 3 questions
+int bh14_l1(int *life){
+
+}
+
+int bh15_l2(int *life){
+
+}
+
+int bh16_l2(int *life){
+
+}
+int bh17_l3(int *life){
+
+}
+
+int bh18_l3(int *life){
+
+}
+
+
+
+
+int (*level_beasy[])() = {bh1_l1,bh3_l2,bh5_l3 /*other levels can be added here */}; // Array of function pointers for level 1 questions
+int (*level_bmedium[])() = {bh7_l1,bh9_l2,bh11_l3/*level 2 functions */}; // Array of function pointers for level 2 questions
+int (*level_bhard[])() = {bh13_l1/*level 3 functions */}; // Array of function pointers for level 3 questions
 
 void score_board_bug(int complite_bug, int life) { // Function to display the score board
     system("cls");
@@ -216,11 +277,12 @@ void easy_b() { // Function for easy bug hunting
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Easy Bug Hunter...\n", 2);
     int life = 3, complite_bug=0;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3 && back_b; i++) {
         complite_bug += level_beasy[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function
+    back_b = 1; // Reset back_b to 1 for the next game
 }
 
 void medium_b() { // Function for medium bug hunting
@@ -228,11 +290,12 @@ void medium_b() { // Function for medium bug hunting
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Medium Bug Hunter...\n", 2);
     int life = 3, complite_bug=0;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3 && back_b; i++) {
         complite_bug += level_bmedium[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function
+    back_b = 1; // Reset back_b to 1 for the next game
 }
 
 void hard_b() { // Function for hard bug hunting
@@ -240,11 +303,12 @@ void hard_b() { // Function for hard bug hunting
     set_cnl_pos((W_size.x / 2) - 10, (W_size.y / 2) + 4);
     animation("\033[1;32mStarting Hard Bug Hunter...\n", 2);
     int life = 3, complite_bug=0;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 1 && back_b; i++) {
         complite_bug += level_bhard[i](&life);
         if (life == 0) break;
     }
     score_board_bug(complite_bug, life); // Call the score board function
+    back_b = 1; // Reset back_b to 1 for the next game
 }
 
 void bug_hunter() {
