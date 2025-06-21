@@ -133,6 +133,11 @@ int cq1_l1(int *life){ // question 1 for level 1 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0;
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("variable name must be start from a character. Special characters, numbers and \nkeywords are allowed. We can use ( _ ) into variable name.",4);
@@ -142,9 +147,12 @@ int cq1_l1(int *life){ // question 1 for level 1 for easy level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -211,6 +219,11 @@ int cq2_l1(int *life){ // question 2 for level 1 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Pointers is a derived data type because it is created from a basic data type.",4);
@@ -221,8 +234,12 @@ int cq2_l1(int *life){ // question 2 for level 1 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -289,6 +306,11 @@ int cq3_l1(int *life){ // question 3 for level 1 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("The ( % ) operator in C is designed to work with integers only.",4);
@@ -299,8 +321,12 @@ int cq3_l1(int *life){ // question 3 for level 1 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -371,6 +397,11 @@ int cq4_l2(int *life){ // question 1 for level 2 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Here both the nembers are integer type thats why the result will store only the\nineteger part",4);
@@ -381,8 +412,12 @@ int cq4_l2(int *life){ // question 1 for level 2 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -449,6 +484,11 @@ int cq5_l2(int *life){ // question 2 for level 2 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("There is no operator like functional operator in C.",4);
@@ -459,8 +499,13 @@ int cq5_l2(int *life){ // question 2 for level 2 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -531,6 +576,11 @@ int cq6_l2(int *life){ // question 3 for level 2 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In C, when different data types are used in the same expression, C convert the \nsmaller type to the bigger type before doing the calculation. This is \ncalled type promotion",4);
@@ -541,8 +591,13 @@ int cq6_l2(int *life){ // question 3 for level 2 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -613,6 +668,11 @@ int cq7_l3(int *life){ // question 1 for level 3 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Arithmetic operator follows the precedence rule.",4);
@@ -623,8 +683,13 @@ int cq7_l3(int *life){ // question 1 for level 3 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -695,6 +760,11 @@ int cq8_l3(int *life){ // question 2 for level 3 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Static variable remembers it's value even after the function ends and Global \nvariable is available anywhere in the program.",4);
@@ -705,8 +775,13 @@ int cq8_l3(int *life){ // question 2 for level 3 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -777,6 +852,11 @@ int cq9_l3(int *life){ // question 3 for level 3 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Because of increament operator a will be 3 from 2 and then divided by 2 which\nstores an integer value in result",4);
@@ -787,8 +867,12 @@ int cq9_l3(int *life){ // question 3 for level 3 for easy level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -855,6 +939,11 @@ int cq10_l3(int *life){ // question 4 for level 3 for easy level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In C, the long long int stores a large number of 8 Bytes = 64 Bits.",4);
@@ -864,9 +953,14 @@ int cq10_l3(int *life){ // question 4 for level 3 for easy level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+    
     
     return complite_quiz;
 }
@@ -936,6 +1030,11 @@ int cq11_l1(int *life){ // question 1 for level 1 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("if (0) means false ; so the if block will not run.",4);
@@ -945,9 +1044,14 @@ int cq11_l1(int *life){ // question 1 for level 1 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+ 
     
     return complite_quiz;
 }
@@ -1018,6 +1122,11 @@ int cq12_l1(int *life){ // question 2 for level 1 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In the printf function, the x (which is 5) is printed first, then incremented.\nSo, it prints 5 and x becomes 6 after that.",4);
@@ -1027,9 +1136,13 @@ int cq12_l1(int *life){ // question 2 for level 1 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+ 
     
     return complite_quiz;
 }
@@ -1100,6 +1213,11 @@ int cq13_l1(int *life){ // question 3 for level 1 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("A do-while loop always runs at least once ; then checks the condition.",4);
@@ -1109,9 +1227,13 @@ int cq13_l1(int *life){ // question 3 for level 1 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1182,6 +1304,11 @@ int cq14_l1(int *life){ // question 4 for level 1 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("A do-while loop always runs at least once ; then checks the condition.",4);
@@ -1191,9 +1318,14 @@ int cq14_l1(int *life){ // question 4 for level 1 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+    
     
     return complite_quiz;
 }
@@ -1260,6 +1392,11 @@ int cq15_l2(int *life){ // question 1 for level 2 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("A recursion function never stops calling itself until there has any break in loop. ",4);
@@ -1269,9 +1406,13 @@ int cq15_l2(int *life){ // question 1 for level 2 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1342,6 +1483,11 @@ int cq16_l2(int *life){ // question 2 for level 2 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Here the value of x will be printed same as 57 because of post-decrement \nthen it will decrease and will be 56 then after being decrease again in \npre-decrement it will be 55 , like the same way in the case of \npost-increment and pre-increment it will be 55 and then 57.",4);
@@ -1351,9 +1497,13 @@ int cq16_l2(int *life){ // question 2 for level 2 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1424,6 +1574,11 @@ int cq17_l2(int *life){ // question 3 for level 2 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In the above code, the loop completes four iterations. Each iteration \nprints 3 backslashes. As a result, (3 x 4) or 12 backslashes are \nprinted in output.",4);
@@ -1433,9 +1588,13 @@ int cq17_l2(int *life){ // question 3 for level 2 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1506,6 +1665,11 @@ int cq18_l3(int *life){ // question 1 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Here b will be pre-incremented and will be stored 6 in the 98 will be mod \nby the 6.",4);
@@ -1515,9 +1679,13 @@ int cq18_l3(int *life){ // question 1 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1588,6 +1756,11 @@ int cq19_l3(int *life){ // question 2 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Here we changed “ a “ using a pointer by storing the value of b in the \naddress of a.",4);
@@ -1597,9 +1770,13 @@ int cq19_l3(int *life){ // question 2 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1670,6 +1847,11 @@ int cq20_l3(int *life){ // question 3 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In this switch case after matching case 3, it does not stop. It keeps running\nthe next cases. after matching one case, without break, all next\ncases also run.",4);
@@ -1679,10 +1861,14 @@ int cq20_l3(int *life){ // question 3 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
 
-    _getch();
-    
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+
     return complite_quiz;
 }
 
@@ -1753,6 +1939,11 @@ int cq21_l1(int *life){ // question 1 for level 1 for hard level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In C we find the length of a string with strlen() function..",4);
@@ -1762,9 +1953,14 @@ int cq21_l1(int *life){ // question 1 for level 1 for hard level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+   
     
     return complite_quiz;
 }
@@ -1831,6 +2027,11 @@ int cq22_l1(int *life){ // question 2 for level 1 for hard level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("' struct ' is the right syntax to declare a structure in C.",4);
@@ -1840,9 +2041,13 @@ int cq22_l1(int *life){ // question 2 for level 1 for hard level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
     
     return complite_quiz;
 }
@@ -1909,6 +2114,11 @@ int cq23_l1(int *life){ // question 3 for level 1 for hard level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("The memory which is allocated by malloc/calloc/realloc deallocates by free()\nin C. ",4);
@@ -1919,8 +2129,13 @@ int cq23_l1(int *life){ // question 3 for level 1 for hard level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -1991,6 +2206,11 @@ int cq24_l2(int *life){ // question 1 for level 2 for hard level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In C, to write something into a file, we do not use printf() (which prints \nto the screen). Instead, we use fprintf() to print into a file.",4);
@@ -2000,9 +2220,14 @@ int cq24_l2(int *life){ // question 1 for level 2 for hard level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+    
     
     return complite_quiz;
 }
@@ -2069,6 +2294,11 @@ int cq25_l2(int *life){ // question 2 for level 2 for hard level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("In C language, \0 means 'the end of the string'. So when the computer sees \n\0, it stops reading.",4);
@@ -2078,9 +2308,12 @@ int cq25_l2(int *life){ // question 2 for level 2 for hard level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
-
-    _getch();
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
     
     return complite_quiz;
 }
@@ -2151,6 +2384,11 @@ int cq26_l2(int *life){ // question 3 for level 2 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Uninitialized elements in a statically declared array get default value 0.",4);
@@ -2160,9 +2398,14 @@ int cq26_l2(int *life){ // question 3 for level 2 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+    
     
     return complite_quiz;
 }
@@ -2229,6 +2472,11 @@ int cq27_l3(int *life){ // question 1 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("The function feof (fp) checks if the end of the file has been reached.",4);
@@ -2239,8 +2487,13 @@ int cq27_l3(int *life){ // question 1 for level 3 for midium level
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
    
-
-    _getch();
+    char chr=_getch();
+    if(chr=='@'){
+        back = 0; // Set back to false if '@' is pressed
+        *life = 0; // Set life to 0 if '@' is pressed
+        return complite_quiz; // if '@' is pressed, exit the quiz
+    } // if '@' is pressed, exit the quiz
+    
     
     return complite_quiz;
 }
@@ -2311,6 +2564,11 @@ int cq28_l3(int *life){ // question 2 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("*(arr + 1) accesses second element using pointer arithmetic.",4);
@@ -2320,9 +2578,14 @@ int cq28_l3(int *life){ // question 2 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+    
     
     return complite_quiz;
 }
@@ -2393,6 +2656,11 @@ int cq29_l3(int *life){ // question 3 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("Accessing head->data after free( head ) is invalid.",4);
@@ -2402,9 +2670,14 @@ int cq29_l3(int *life){ // question 3 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
+
     
     return complite_quiz;
 }
@@ -2475,6 +2748,11 @@ int cq30_l3(int *life){ // question 4 for level 3 for midium level
           if(ans==-1) animation("\033[1;31mPress Y for explanation, else press N for next\n", 3);
             else animation("\033[1;31mIncorrect! Press Y for explanation, else press N for next\n", 3);
             char exp=_getch();
+            if(exp=='@')  {
+                back = 0; // Set back to false if '@' is pressed
+                *life = 0; // Set life to 0 if '@' is pressed
+                return complite_quiz; // if '@' is pressed, exit the quiz
+            } // if '@' is pressed, exit the quiz
             if(exp=='y'||exp=='Y') {
                 c1(9);
                 animation("strcat(str1, str2) appends str2 to str1. str1 becomes 'HELLOCODECRAFTER'.",4);
@@ -2484,10 +2762,13 @@ int cq30_l3(int *life){ // question 4 for level 3 for midium level
     }
     set_cnl_pos(0,(W_size.y)-2);
     animation("\033[1;34mPress for next round...\033[0m",3);
-   
+   char chr=_getch();
+   if(chr=='@'){
+       back = 0; // Set back to false if '@' is pressed
+       *life = 0; // Set life to 0 if '@' is pressed
+       return complite_quiz; // if '@' is pressed, exit the quiz
+   } // if '@' is pressed, exit the quiz
 
-    _getch();
-    
     return complite_quiz;
 }
 
