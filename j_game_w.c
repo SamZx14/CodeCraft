@@ -128,8 +128,9 @@ void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int life
     printf("%sHigh Score: %02d%s",c2(15), high_score_r(h_score),c2(0));
     set_cnl_pos(W_size.x-20,W_size.y-1);
     printf("%sCurrent Score: %02d %s",c2(15),c_score,c2(0));
+    set_cnl_pos((W_size.x/2)-7,(W_size.y)-2);
+    h_score==1 ? printf("%sBack: Shift+2%s",c2(1),c2(0)) : printf("%sBack: Shift+2,\\r%s",c2(1),c2(0));
     set_cnl_pos((W_size.x/2)-6,(W_size.y)-1);
     printf("%sUser: %s%s",c2(15),us,c2(0));
     
 }
-
