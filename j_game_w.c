@@ -134,4 +134,3 @@ void dis_score(const char *name,int rnd,int c_score,int h_score,int lev,int life
     printf("%sUser: %s%s",c2(15),us,c2(0));
     
 }
-
