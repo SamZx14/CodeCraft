@@ -22,4 +22,3 @@ If you wanted to play --
 ### Clone the Repository
 
 git  -https://github.com/SayemXx/CodeCraft.git
-
